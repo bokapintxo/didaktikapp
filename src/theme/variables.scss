@@ -242,3 +242,32 @@ html {
    */
   --ion-dynamic-font: var(--ion-default-dynamic-font);
 }
+
+
+/* Custom theme variables */
+:root {
+  /*main colors*/
+  --primary-color: #FFCA99;
+  --primary-shadow: #957354;
+  --secondary-color: #FED179;
+  --secondary-shadow: #9F8654;
+  --tertiary-color: #FFE6B5;
+  --tertiary-shadow: #9F8654;
+
+  /*text colors*/
+  --ptext-fore: #FFFFFF;
+  --stext-fore: #000000;
+
+  /*disabled elements*/
+  --disabled-color: #E4E4E4;
+  --disabled-shadow: #727272;
+
+  /*correct and incorrect sign colors*/
+  --check-color: #7CFF91;
+  --check-shadow: #47744F;
+  --x-color: #FF7C7C;
+  --x-shadow: #844444;
+
+  /*background color*/
+  --background-color: #F5EEDF;
+}
