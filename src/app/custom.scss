@@ -40,16 +40,20 @@ ion-content > * {
 
 /*TEXT*/
 h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: bold;
     margin: 5px 0;
     padding: 0;
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin: 0;
     padding: 0;
+}
+
+.maintitle {
+    text-align: center;
 }
 
 /*BUTTONS*/
@@ -69,7 +73,7 @@ ion-button {
     --color: white;
     --box-shadow: 0 4px 0 0 #90654C;
     --border-color: #90654C;
-    font-size: 3rem;
+    font-size: 2.5rem;
     --padding: 1.5rem, 1rem;
     font-weight: bold;
     transition-duration: 0.3s;
@@ -85,8 +89,8 @@ ion-button {
     --color: black;
     --box-shadow: 0 4px 0px 0 #9F8654;
     --border-color: #9F8654;
-    font-size: 1.25rem;
-    --padding: 0.5rem;
+    font-size: 1.15rem;
+    --padding: 0;
     transition-duration: 0.3s;
 }
 
@@ -96,7 +100,12 @@ ion-button {
 }
 
 .topbtn {
-    width: 40%;
+    width: 150px;
+}
+
+.topbtnico {
+    margin-left: 5px;
+    max-height: 1.15rem;
 }
 
 /*LAYOUT*/
