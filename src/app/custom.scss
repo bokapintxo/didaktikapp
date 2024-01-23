@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+/*main colors*/
+$primary-color: #FF9F69;
+$primary-shadow: #90654C;
+$secondary-color: #FED179;
+$secondary-shadow: #9F8654;
+$tertiary-color: #FFE6B5;
+$tertiary-shadow: #9F8654;
+
+/*text colors*/
+$ptext-fore: #FFFFFF;
+$stext-fore: #000000;
+
+/*disabled elements*/
+$disabled-color: #E4E4E4;
+$disabled-shadow: #727272;
+
+/*correct and incorrect sign colors*/
+$check-color: #7CFF91;
+$check-shadow: #47744F;
+$x-color: #FF7C7C;
+$x-shadow: #844444;
+
+/*background color*/
+$background-color: #F5EEDF;
+
+* {
+    font-family: 'Varela Round', sans-serif;
+}
+
+ion-content {
+    --background: #F5EEDF;
+}
+
+ion-content > * {
+    color: black;
+}
+
+
+/*TEXT*/
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 5px 0;
+    padding: 0;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+/*BUTTONS*/
+ion-button {
+    --ripple-color: transparent;
+    --border-radius: 10px;
+    --border-width: 2px;
+    --border-style: solid;
+    letter-spacing: normal;
+    text-transform: capitalize;
+    width: 100%;
+}
+
+
+.button-primary {
+    --background: #FF9F69;
+    --color: white;
+    --box-shadow: 0 4px 0 0 #90654C;
+    --border-color: #90654C;
+    font-size: 3rem;
+    --padding: 1.5rem, 1rem;
+    font-weight: bold;
+    transition-duration: 0.3s;
+}
+
+.button-primary:active {
+    --box-shadow: 0 0px 0px 0 #90654C;
+    transform: translateY(4px);
+}
+
+.button-secondary {
+    --background: #FFE6B5;
+    --color: black;
+    --box-shadow: 0 4px 0px 0 #9F8654;
+    --border-color: #9F8654;
+    font-size: 1.25rem;
+    --padding: 0.5rem;
+    transition-duration: 0.3s;
+}
+
+.button-secondary:active {
+    --box-shadow: 0 0px 0px 0 #9F8654;
+    transform: translateY(4px);
+}
+
+.topbtn {
+    width: 40%;
+}
+
+/*LAYOUT*/
+.global {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 20px 10px;
+}
+
+.toptitle {
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.topbtns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
