@@ -12,9 +12,16 @@ import { IonicModule } from '@ionic/angular';
 })
 export class DialogPage implements OnInit {
 
+  loadScript() {
+    const script = document.createElement('script');
+    script.src = '../../assets/dialog/dialog.js';
+    document.body.appendChild(script);
+  }
+
   constructor() { }
 
   ngOnInit() {
+    this.loadScript();
   }
 
 }
