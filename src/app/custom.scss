@@ -108,6 +108,13 @@ ion-button {
     max-height: 1.15rem;
 }
 
+.button-disabled {
+    --background: #E4E4E4;
+    --color: 727272;
+    --box-shadow: 0 0px 0px 0 #727272;
+    --border-color: #727272;
+}
+
 /*LAYOUT*/
 .global {
     display: flex;
@@ -134,4 +141,61 @@ ion-button {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.hflex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.vflex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.gap10 {
+    gap: 10px;
+}
+
+
+/*JOKOAK*/
+.bingobtn {
+    --background: #FFE6B5;
+    --color: black;
+    --box-shadow: 0 4px 0px 0 #9F8654;
+    --border-color: #9F8654;
+    font-size: 1.15rem;
+    --padding: 0;
+    transition-duration: 0.3s;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.bingobtn:active {
+    --box-shadow: 0 0px 0px 0 #9F8654;
+    transform: translateY(4px);
+}
+
+.bingosakatuta {
+    --box-shadow: 0 0px 0px 0 #9F8654;
+    transform: translateY(4px);
+    --background: #E4E4E4;
+}
+
+.bingocheck {
+    height: 2rem;
+    z-index: 2;
+    transform: translate(-1.5rem);
+    position:absolute;
+}
+
+.relative {
+    position: relative;
+    width: 100%;
 }

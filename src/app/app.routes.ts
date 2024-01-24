@@ -17,5 +17,9 @@ export const routes: Routes = [
     path: 'dialog',
     loadComponent: () => import('./dialog/dialog.page').then( m => m.DialogPage)
   },
+  {
+    path: 'bingoa',
+    loadComponent: () => import('./bingoa/bingoa.page').then( m => m.BingoaPage)
+  },
 
 ];
