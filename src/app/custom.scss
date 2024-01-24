@@ -143,6 +143,27 @@ ion-button {
     justify-content: center;
 }
 
+.hidden {
+    display: none;
+}
+
+.hflex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.vflex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.gap10 {
+    gap: 10px;
+}
+
+
 /*DIALOG*/
 @keyframes parpadeo {
     0% { opacity: 1; }
@@ -195,24 +216,6 @@ ion-button {
 
 img {
     float: right;
-.hidden {
-    display: none;
-}
-
-.hflex {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.vflex {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.gap10 {
-    gap: 10px;
 }
 
 
