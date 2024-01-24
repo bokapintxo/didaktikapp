@@ -1,0 +1,55 @@
+<ion-content [fullscreen]="true">
+  <div class="global">
+    <div class="toptitle">
+      <h1>Bingoa</h1>
+      <h3>Jolastu zuen artean denak lortu arte!</h3>
+    </div>
+    <div class="content">
+      <div class="hflex gap10">
+        <div class="relative">
+          <ion-button class="bingobtn" (click)="toggleSakatuta(0, $event.target)"></ion-button>
+          <img class="bingocheck hidden" id="bingocheck0" src="../../assets/icon/o.svg" alt="check">
+        </div>
+        <div class="relative">
+          <ion-button class="bingobtn" (click)="toggleSakatuta(1, $event.target)"></ion-button>
+          <img class="bingocheck hidden" id="bingocheck1" src="../../assets/icon/o.svg" alt="check">
+        </div>
+        <div class="relative">
+          <ion-button class="bingobtn" (click)="toggleSakatuta(2, $event.target)"></ion-button>
+          <img class="bingocheck hidden" id="bingocheck2" src="../../assets/icon/o.svg" alt="check">
+        </div>
+      </div>
+      <div class="hflex gap10">
+        <div class="relative">
+          <ion-button class="bingobtn" (click)="toggleSakatuta(3, $event.target)"></ion-button>
+          <img class="bingocheck hidden" id="bingocheck3" src="../../assets/icon/o.svg" alt="check">
+        </div>
+        <div class="relative">
+          <ion-button class="bingobtn" (click)="toggleSakatuta(4, $event.target)"></ion-button>
+          <img class="bingocheck hidden" id="bingocheck4" src="../../assets/icon/o.svg" alt="check">
+        </div>
+        <div class="relative">
+          <ion-button class="bingobtn" (click)="toggleSakatuta(5, $event.target)"></ion-button>
+          <img class="bingocheck hidden" id="bingocheck5" src="../../assets/icon/o.svg" alt="check">
+        </div>
+      </div>
+      <div class="hflex gap10">
+        <div class="relative">
+          <ion-button class="bingobtn" (click)="toggleSakatuta(6, $event.target)"></ion-button>
+          <img class="bingocheck hidden" id="bingocheck6" src="../../assets/icon/o.svg" alt="check">
+        </div>
+        <div class="relative">
+          <ion-button class="bingobtn" (click)="toggleSakatuta(7, $event.target)"></ion-button>
+          <img class="bingocheck hidden" id="bingocheck7" src="../../assets/icon/o.svg" alt="check">
+        </div>
+        <div class="relative">
+          <ion-button class="bingobtn" (click)="toggleSakatuta(8, $event.target)"></ion-button>
+          <img class="bingocheck hidden" id="bingocheck8" src="../../assets/icon/o.svg" alt="check">
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <ion-button class="button-primary button-disabled" id="bingojarraitu" (click)="navigateHome()">jarraitu</ion-button>
+    </div>
+  </div>
+</ion-content>
