@@ -163,6 +163,12 @@ ion-button {
     gap: 10px;
 }
 
+.relative {
+    position: relative;
+    width: 100%;
+}
+
+
 
 /*DIALOG*/
 @keyframes parpadeo {
@@ -210,12 +216,8 @@ ion-button {
 #img {
     margin-right: 10px;
     margin-top: -25px;
-
-    animation: parpadeo 0.9s infinite;
-}
-
-img {
     float: right;
+    animation: parpadeo 0.9s infinite;
 }
 
 
@@ -248,9 +250,4 @@ img {
     z-index: 2;
     transform: translate(-1.5rem);
     position:absolute;
-}
-
-.relative {
-    position: relative;
-    width: 100%;
 }

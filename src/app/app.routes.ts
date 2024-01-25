@@ -21,6 +21,10 @@ export const routes: Routes = [
   {
     path: 'bingoa',
     loadComponent: () => import('./bingoa/bingoa.page').then( m => m.BingoaPage)
+  },  {
+    path: 'puzzlea',
+    loadComponent: () => import('./puzzlea/puzzlea.page').then( m => m.PuzzleaPage)
   },
+
 
 ];
