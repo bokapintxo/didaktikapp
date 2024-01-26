@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton } from '@ionic/angular/standalone';
+import { Router } from '@angular/router';
+import { Haptics, ImpactStyle } from '@capacitor/haptics';
 
 @Component({
   selector: 'app-home',
@@ -9,5 +11,27 @@ import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton } from '@ionic/a
   imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonButton],
 })
 export class HomePage {
-  constructor() {}
+  constructor(private router: Router) {}
+
+  navigateBingo(): void {
+    this.router.navigate(['/bingoa']);
+  }
+
+  navigatePuzzle(): void {
+    this.router.navigate(['/puzzlea']);
+  }
+
+  navigateDialog(): void {
+    this.router.navigate(['/dialog']);
+  }
+
+  navigateTemplate(): void {
+    this.router.navigate(['/template-page']);
+  }
+
+  async pushButton() {
+    await Haptics.vibrate({duration: 5});
+    await new Promise(resolve => setTimeout(resolve, 50));
+    await Haptics.vibrate({duration: 5});
+  }
 }
