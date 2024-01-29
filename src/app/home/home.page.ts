@@ -25,6 +25,14 @@ export class HomePage {
     this.router.navigate(['/dialog']);
   }
 
+  navigateHitzakLotu(): void {
+    this.router.navigate(['/hitzak-lotu']);
+  }
+
+  navigateUrkatua(): void {
+    this.router.navigate(['/urkatua']);
+  }
+
   navigateTemplate(): void {
     this.router.navigate(['/template-page']);
   }

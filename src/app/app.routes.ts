@@ -33,7 +33,11 @@ export const routes: Routes = [
   {
     path: 'hitzak-lotu-bi',
     loadComponent: () => import('./hitzak-lotu-bi/hitzak-lotu-bi.page').then( m => m.HitzakLotuBiPage)
+  },  {
+    path: 'urkatua',
+    loadComponent: () => import('./urkatua/urkatua.page').then( m => m.UrkatuaPage)
   },
+
 
 
 ];
