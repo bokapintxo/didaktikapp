@@ -34,7 +34,7 @@ var imagePuzzle = {
     
                 currentList = $('#sortable > li').map(function (i, el) { return $(el).attr('data-value'); });
                 if (isSorted(currentList))
-                    $('#sortable').empty().html($('#gameOver').html());
+                    $('#playPanel').empty().html($('#gameOver').html());
                 else {
                     var now = new Date().getTime();
                     imagePuzzle.stepCount++;

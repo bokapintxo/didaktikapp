@@ -28,11 +28,6 @@
     max-width:800px;
 }
 
-#collage img#actualImage{
-    height:300px;
-    width:300px;
-}
-
 #collage #sortable {
     list-style-type: none;
     display: inline-block;
@@ -61,4 +56,8 @@
     height: auto;
     width: auto;
     padding: 3px 8px;
+}
+
+body {
+    background-color:#F5EEDF;
 }
