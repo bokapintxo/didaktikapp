@@ -169,6 +169,13 @@ ion-button {
     width: 100%;
 }
 
+.gap20 {
+    gap: 20px;
+}
+
+.w100 {
+    width: 100%;
+}
 
 
 /*DIALOG*/
@@ -259,4 +266,47 @@ ion-button {
     border: 2px solid #90654C;
     padding: 0;
     border-radius: 15px;
+}
+
+/*HITZAK LOTU*/
+.hitzakbtn {
+}
+
+.hitzakbtn-gorria {
+    --background: #FF9999;
+    --box-shadow: 0 4px 0px 0 #895555;
+    --border-color: #895555;
+}
+
+.hitzakbtn-naranja {
+    --background: #FFCA99;
+    --box-shadow: 0 4px 0px 0 #957354;
+    --border-color: #957354;
+}
+.hitzakbtn-horia {
+    --background: #FDFF99;
+    --box-shadow: 0 4px 0px 0 #868754;
+    --border-color: #868754;
+}
+.hitzakbtn-berdea {
+    --background: #99FFA3;
+    --box-shadow: 0 4px 0px 0 #3F7848;
+    --border-color: #3F7848;
+}
+.hitzakbtn-urdina {
+    --background: #99B6FF;
+    --box-shadow: 0 4px 0px 0 #434F6D;
+    --border-color: #434F6D;
+}
+
+.hitzakbtn-lila {
+    --background: #C699FF;
+    --box-shadow: 0 4px 0px 0 #614A7E;
+    --border-color: #614A7E;
+}
+
+.hitzakbtn-larrosa {
+    --background: #FF99E9;
+    --box-shadow: 0 4px 0px 0 #77476C;
+    --border-color: #77476C;
 }
