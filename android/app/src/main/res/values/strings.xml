@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">didaktikapp</string>
-    <string name="title_activity_main">didaktikapp</string>
-    <string name="package_name">ionic.didaktikapp</string>
-    <string name="custom_url_scheme">ionic.didaktikapp</string>
+    <string name="app_name">DidaktikApp</string>
+    <string name="title_activity_main">DidaktikApp</string>
+    <string name="package_name">bokapintxo.didaktikapp</string>
+    <string name="custom_url_scheme">bokapintxo.didaktikapp</string>
 </resources>
