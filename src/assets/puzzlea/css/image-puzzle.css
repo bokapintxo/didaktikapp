@@ -36,9 +36,10 @@
 #collage #sortable {
     list-style-type: none;
     display: inline-block;
-    margin: 10px;
+    margin: 0px;
     padding: 0;
     width: 400px;
+    overflow:hidden;
 }
 
     #collage #sortable li {
