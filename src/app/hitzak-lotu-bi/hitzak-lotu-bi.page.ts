@@ -3,17 +3,15 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
-import { Router } from '@angular/router';
-
 @Component({
-  selector: 'app-hitzak-lotu',
-  templateUrl: './hitzak-lotu.page.html',
-  styleUrls: ['./hitzak-lotu.page.scss'],
+  selector: 'app-hitzak-lotu-bi',
+  templateUrl: './hitzak-lotu-bi.page.html',
+  styleUrls: ['./hitzak-lotu-bi.page.scss'],
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule]
 })
 
-export class HitzakLotuPage implements OnInit {
+export class HitzakLotuBiPage implements OnInit {
 
   estilosBotones: { [key: string]: string } = {};
   parejasFormadas: { [key: string]: boolean } = {};
@@ -31,7 +29,7 @@ export class HitzakLotuPage implements OnInit {
       return;
     }
   
-    const esPrimerConjunto = nombreBoton === 'eguenzuri' || nombreBoton === 'bariku_argi' || nombreBoton === 'zapatu_erregularra' || nombreBoton === 'domeka_karnabala' || nombreBoton === 'ilen_karnabala' || nombreBoton === 'martitzen_karnabala' || nombreBoton === 'txitxiburduntxi';
+    const esPrimerConjunto = nombreBoton === 'ostirala' || nombreBoton === 'osteguna' || nombreBoton === '2igandea' || nombreBoton === 'astelehena' || nombreBoton === 'asteartea' || nombreBoton === '1igandea' || nombreBoton === 'larunbata';
   
     if (esPrimerConjunto || Object.keys(this.botonesSeleccionados).length > 0) {
       this.botonesSeleccionados[nombreBoton] = true;
@@ -68,15 +66,11 @@ export class HitzakLotuPage implements OnInit {
   }
 
   allSakatuta(): boolean {
-    const botones = ['eguenzuri', 'bariku_argi', 'zapatu_erregularra', 'domeka_karnabala', 'ilen_karnabala', 'martitzen_karnabala', 'txitxiburduntxi'];
+    const botones = ['ostirala', 'osteguna', '2igandea', 'astelehena', 'asteartea', '1igandea', 'larunbata'];
     return botones.every(boton => this.parejasFormadas[boton]);
   }
-
-  navigateHitzakLotuBi(): void {
-    this.router.navigate(['/hitzak-lotu-bi']);
-  }
   
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
   }

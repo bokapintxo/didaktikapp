@@ -25,6 +25,10 @@ export const routes: Routes = [
     path: 'hitzak-lotu',
     loadComponent: () => import('./hitzak-lotu/hitzak-lotu.page').then( m => m.HitzakLotuPage)
   },
+  {
+    path: 'hitzak-lotu-bi',
+    loadComponent: () => import('./hitzak-lotu-bi/hitzak-lotu-bi.page').then( m => m.HitzakLotuBiPage)
+  },
 
 
 ];
