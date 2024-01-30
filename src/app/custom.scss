@@ -316,10 +316,6 @@ ion-button {
 }
 
 /*URKATUA*/
-.hitza {
-
-}
-
 .hitzakflex {
     display: flex;
     justify-content: center;
@@ -370,5 +366,27 @@ ion-button {
 .urkatua-bidali-tekla {
     grid-column: span 5;
     height: 60px;
+}
+
+.hidden {
+    display: none;
+}
+
+.urkatuabtn-sakatu {
+    --background: #FED179;
+    --box-shadow: 0 4px 0px 0 #9F8654;
+    --border-color: #9F8654;
+}
+
+.urkatubtn-zuzen {
+    --background: #7CFF91;;
+    --box-shadow: 0 4px 0px 0 #47744F;
+    --border-color: #47744F;
+}
+
+.urkatubtn-oker {
+    --background: #FF7C7C;
+    --box-shadow: 0 4px 0px 0 #844444;
+    --border-color: #844444;
 }
 
