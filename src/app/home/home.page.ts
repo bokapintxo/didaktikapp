@@ -38,6 +38,10 @@ export class HomePage {
     this.router.navigate(['/bingoa']);
   }
 
+  navigateBingoRng(): void {
+    this.router.navigate(['/bingo-irakaslea']);
+  }
+
   navigatePuzzle(): void {
     this.router.navigate(['/puzzlea']);
   }
