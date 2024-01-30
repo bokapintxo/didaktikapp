@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonButton, IonicModule } from '@ionic/angular';
 import { state } from '@angular/animations';
 import { Router } from '@angular/router';
+import { Haptics } from '@capacitor/haptics';
 
 @Component({
   selector: 'app-bingoa',
@@ -40,5 +41,11 @@ export class BingoaPage implements OnInit {
 
   navigateHome(): void {
     this.router.navigate(['/home']);
+  }
+
+  async pushButton() {
+    await Haptics.vibrate({duration: 5});
+    await new Promise(resolve => setTimeout(resolve, 50));
+    await Haptics.vibrate({duration: 5});
   }
 }
