@@ -35,7 +35,7 @@ export class BingoIrakasleaPage implements OnInit {
     this.http.get('../../assets/bingoa-irudiak/izenak.csv', {responseType: 'text'}).subscribe(
       data => {
         let csvToRowArray = data.split('\n');
-        for (let index = 1; index < csvToRowArray.length - 1; index++) {
+        for (let index = 0; index < csvToRowArray.length; index++) {
           let row = csvToRowArray[index].split(';');
           this.data.push({name: row[0], index: Number(row[1])});
         }
@@ -77,16 +77,16 @@ export class BingoIrakasleaPage implements OnInit {
 
 
   async pushButton() {
-    this.audioSecondaryButton.load();
-    this.audioSecondaryButton.play();
+    this.audioButton.load();
+    this.audioButton.play();
     await Haptics.vibrate({duration: 10});
     await new Promise(resolve => setTimeout(resolve, 50));
     await Haptics.vibrate({duration: 10});
   }
 
   async pushSecondaryButton() {
-    this.audioButton.load();
-    this.audioButton.play();
+    this.audioSecondaryButton.load();
+    this.audioSecondaryButton.play();
     await Haptics.vibrate({duration: 5});
   }
 

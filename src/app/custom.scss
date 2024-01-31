@@ -31,6 +31,8 @@ $background-color: #F5EEDF;
 
 ion-content {
     --background: #F5EEDF;
+    margin:0;
+    padding:0;
 }
 
 ion-content > * {
@@ -233,7 +235,6 @@ ion-button {
 
 /*BINGO IKASLEAK*/
 .bingobtn {
-    --background: #FFE6B5;
     --color: black;
     --box-shadow: 0 4px 0px 0 #9F8654;
     --border-color: #9F8654;
@@ -242,6 +243,10 @@ ion-button {
     transition-duration: 0.3s;
     width: 100%;
     margin-bottom: 10px;
+    aspect-ratio: 1/1;
+    --background:none;
+    background-size:cover;
+    border-radius: 15px;
 }
 
 .bingobtn:active {
@@ -252,7 +257,7 @@ ion-button {
 .bingosakatuta {
     --box-shadow: 0 0px 0px 0 #9F8654;
     transform: translateY(4px);
-    --background: #E4E4E4;
+    
 }
 
 .bingocheck {
@@ -260,6 +265,12 @@ ion-button {
     z-index: 2;
     transform: translate(-1.5rem);
     position:absolute;
+}
+
+.bingocontainer {
+    position: relative;
+    width: 100%;
+    padding:0;
 }
 
 /*BINGO IRAKASLEAK*/
