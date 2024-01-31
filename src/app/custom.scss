@@ -263,7 +263,9 @@ ion-button {
 .bingocheck {
     height: 2rem;
     z-index: 2;
-    transform: translate(-1.5rem);
+    top:0;
+    right:0;
+    transform: translateX(10px);
     position:absolute;
 }
 
