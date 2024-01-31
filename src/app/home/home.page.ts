@@ -34,12 +34,8 @@ export class HomePage {
     this.audioWrong.src = '../../assets/aud/wrong.mp3';
   }
 
-  navigateBingo(): void {
-    this.router.navigate(['/bingoa']);
-  }
-
-  navigateBingoRng(): void {
-    this.router.navigate(['/bingo-irakaslea']);
+  navigateBingoRole(): void {
+    this.router.navigate(['/bingo-rola']);
   }
 
   navigatePuzzle(): void {

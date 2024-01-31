@@ -37,6 +37,10 @@ export const routes: Routes = [
     path: 'bingo-irakaslea',
     loadComponent: () => import('./bingo-irakaslea/bingo-irakaslea.page').then( m => m.BingoIrakasleaPage)
   },
+  {
+    path: 'bingo-rola',
+    loadComponent: () => import('./bingo-rola/bingo-rola.page').then( m => m.BingoRolaPage)
+  },
 
 
 
