@@ -4,14 +4,18 @@
       <h1>Durango klik batean</h1>
     </div>
     <div class="content">
-      <ion-button class="button-secondary" (click)="navigateBingo()">bingoa</ion-button>
-      <ion-button class="button-secondary" (click)="navigatePuzzle()">puzzlea</ion-button>
-      <ion-button class="button-secondary" (click)="navigateDialog()">dialogoa</ion-button>
-      <ion-button class="button-secondary" (click)="navigateTemplate()">template</ion-button>
+      <ion-button class="button-secondary" (click)="navigateBingoRole(); pushSecondaryButton()">bingoa</ion-button>
+      <ion-button class="button-secondary" (click)="navigatePuzzle(); pushSecondaryButton()">puzzlea</ion-button>
+      <ion-button class="button-secondary" (click)="navigateHitzak(); pushSecondaryButton()">hitzak lotu</ion-button>
+      <ion-button class="button-secondary" (click)="navigateHitzak2(); pushSecondaryButton()">hitzak lotu 2</ion-button>
+      <ion-button class="button-secondary" (click)="navigateDialog(); pushSecondaryButton()">dialogoa</ion-button>
+      <ion-button class="button-secondary" (click)="navigateTemplate(); pushSecondaryButton()">template</ion-button>
+      <ion-button class="button-secondary" (click)="incorrectHaptic();">incorrect (vibration)</ion-button>
+      <ion-button class="button-secondary" (click)="correctHaptic();">correct (vibration)</ion-button>
     </div>
     <div class="bottom">
       <ion-button class="button-primary" (click)="pushButton()">hasi</ion-button>
-      <ion-button class="button-secondary">kredituak</ion-button>
+      <ion-button class="button-secondary" (click)="pushSecondaryButton()">kredituak</ion-button>
     </div>
   </div>
 

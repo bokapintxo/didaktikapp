@@ -31,6 +31,8 @@ $background-color: #F5EEDF;
 
 ion-content {
     --background: #F5EEDF;
+    margin:0;
+    padding:0;
 }
 
 ion-content > * {
@@ -230,8 +232,9 @@ ion-button {
 
 
 /*JOKOAK*/
+
+/*BINGO IKASLEAK*/
 .bingobtn {
-    --background: #FFE6B5;
     --color: black;
     --box-shadow: 0 4px 0px 0 #9F8654;
     --border-color: #9F8654;
@@ -240,6 +243,10 @@ ion-button {
     transition-duration: 0.3s;
     width: 100%;
     margin-bottom: 10px;
+    aspect-ratio: 1/1;
+    --background:none;
+    background-size:cover;
+    border-radius: 15px;
 }
 
 .bingobtn:active {
@@ -250,7 +257,7 @@ ion-button {
 .bingosakatuta {
     --box-shadow: 0 0px 0px 0 #9F8654;
     transform: translateY(4px);
-    --background: #E4E4E4;
+    
 }
 
 .bingocheck {
@@ -260,18 +267,53 @@ ion-button {
     position:absolute;
 }
 
-#puzzleframe {
-    height: 400px;
-    width: 400px;
+.bingocontainer {
+    position: relative;
+    width: 100%;
+    padding:0;
+}
+
+/*BINGO IRAKASLEAK*/
+.bingo-rng {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#rng-text {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+#rng-img {
+    border-radius: 15px;
+    width: 100%;
+    aspect-ratio: 1/1;
     border: 2px solid #90654C;
-    padding: 0;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+
+/*PUZZLE*/
+#puzzlecontainer {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+}
+
+#puzzleframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #90654C;
     border-radius: 15px;
 }
 
 /*HITZAK LOTU*/
-.hitzakbtn {
-}
-
 .hitzakbtn-gorria {
     --background: #FF9999;
     --box-shadow: 0 4px 0px 0 #895555;
