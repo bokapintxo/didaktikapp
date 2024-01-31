@@ -8,85 +8,64 @@
       <div class="hitza">
         <div class="hitzakflex">
           <div class="urkatua-hitza">
-            <h1><span [ngClass]="{'hidden': !aukeratutakoletrak.has(hitza[0])}">{{ hitza[0] }}</span></h1>
+            <h1><span [ngClass]="{'hidden': !aukeratutakoletrak.has(hitza[0])}">{{hitza[0]}}</span></h1>
           </div>
           <div class="urkatua-hitza">
-            <h1><span [ngClass]="{'hidden': !aukeratutakoletrak.has(hitza[1])}">{{ hitza[1] }}</span></h1>
+            <h1><span [ngClass]="{'hidden': !aukeratutakoletrak.has(hitza[1])}">{{hitza[1]}}</span></h1>
           </div>
           <div class="urkatua-hitza">
-            <h1><span [ngClass]="{'hidden': !aukeratutakoletrak.has(hitza[2])}">{{ hitza[2] }}</span></h1>
+            <h1><span [ngClass]="{'hidden': !aukeratutakoletrak.has(hitza[2])}">{{hitza[2]}}</span></h1>
           </div>
           <div class="urkatua-hitza">
-            <h1><span [ngClass]="{'hidden': !aukeratutakoletrak.has(hitza[3])}">{{ hitza[3] }}</span></h1>
+            <h1><span [ngClass]="{'hidden': !aukeratutakoletrak.has(hitza[3])}">{{hitza[3]}}</span></h1>
           </div>
           <div class="urkatua-hitza">
-            <h1><span [ngClass]="{'hidden': !aukeratutakoletrak.has(hitza[4])}">{{ hitza[4] }}</span></h1>
+            <h1><span [ngClass]="{'hidden': !aukeratutakoletrak.has(hitza[4])}">{{hitza[4]}}</span></h1>
           </div>
           <div class="urkatua-hitza">
-            <h1><span [ngClass]="{'hidden': !aukeratutakoletrak.has(hitza[5])}">{{ hitza[5] }}</span></h1>
+            <h1><span [ngClass]="{'hidden': !aukeratutakoletrak.has(hitza[5])}">{{hitza[5]}}</span></h1>
           </div>
           <div class="urkatua-hitza">
-            <h1><span [ngClass]="{'hidden': !aukeratutakoletrak.has(hitza[6])}">{{ hitza[6] }}</span></h1>
+            <h1><span [ngClass]="{'hidden': !aukeratutakoletrak.has(hitza[6])}">{{hitza[6]}}</span></h1>
           </div>
         </div>
         <div class="hitzakflex behean">
           <div class="urkatua-hitza">
-            <h1><span [ngClass]="{'hidden': !aukeratutakoletrak.has(hitza[7])}">{{ hitza[7] }}</span></h1>
+            <h1><span [ngClass]="{'hidden': !aukeratutakoletrak.has(hitza[7])}">{{hitza[7]}}</span></h1>
           </div>
           <div class="urkatua-hitza">
-            <h1><span [ngClass]="{'hidden': !aukeratutakoletrak.has(hitza[8])}">{{ hitza[8] }}</span></h1>
+            <h1><span [ngClass]="{'hidden': !aukeratutakoletrak.has(hitza[8])}">{{hitza[8]}}</span></h1>
           </div>
           <div class="urkatua-hitza">
-            <h1><span [ngClass]="{'hidden': !aukeratutakoletrak.has(hitza[9])}">{{ hitza[9] }}</span></h1>
+            <h1><span [ngClass]="{'hidden': !aukeratutakoletrak.has(hitza[9])}">{{hitza[9]}}</span></h1>
           </div>
           <div class="urkatua-hitza">
-            <h1><span [ngClass]="{'hidden': !aukeratutakoletrak.has(hitza[10])}">{{ hitza[10] }}</span></h1>
+            <h1><span [ngClass]="{'hidden': !aukeratutakoletrak.has(hitza[10])}">{{hitza[10]}}</span></h1>
           </div>
           <div class="urkatua-hitza">
-            <h1><span [ngClass]="{'hidden': !aukeratutakoletrak.has(hitza[11])}">{{ hitza[11] }}</span></h1>
+            <h1><span [ngClass]="{'hidden': !aukeratutakoletrak.has(hitza[11])}">{{hitza[11]}}</span></h1>
           </div>
         </div>
       </div>
       <div class="falloak">
         <img class="ximg" src="../../assets/icon/x.svg" alt="X">
-        <h1><span id="falloak-zenbakia">0</span>/8</h1>
+        <h1><span id="falloak-zenbakia">{{ falloak }}</span>/8</h1>
       </div>
       <div class="teklatua gap5">
-        <ion-button class="button-secondary urkatua-tekla" (click)="seleccionarLetra('A')"><h1>A</h1></ion-button>
-        <ion-button class="button-secondary urkatua-tekla" (click)="seleccionarLetra('B')"><h1>B</h1></ion-button>
-        <ion-button class="button-secondary urkatua-tekla" (click)="seleccionarLetra('C')"><h1>C</h1></ion-button>
-        <ion-button class="button-secondary urkatua-tekla" (click)="seleccionarLetra('D')"><h1>D</h1></ion-button>
-        <ion-button class="button-secondary urkatua-tekla" (click)="seleccionarLetra('E')"><h1>E</h1></ion-button>
-        <ion-button class="button-secondary urkatua-tekla" (click)="seleccionarLetra('F')"><h1>F</h1></ion-button>
-        <ion-button class="button-secondary urkatua-tekla" (click)="seleccionarLetra('G')"><h1>G</h1></ion-button>
-        <ion-button class="button-secondary urkatua-tekla" (click)="seleccionarLetra('H')"><h1>H</h1></ion-button>
-
-        <ion-button class="button-secondary urkatua-tekla" (click)="seleccionarLetra('I')"><h1>I</h1></ion-button>
-        <ion-button class="button-secondary urkatua-tekla" (click)="seleccionarLetra('J')"><h1>J</h1></ion-button>
-        <ion-button class="button-secondary urkatua-tekla" (click)="seleccionarLetra('K')"><h1>K</h1></ion-button>
-        <ion-button class="button-secondary urkatua-tekla" (click)="seleccionarLetra('L')"><h1>L</h1></ion-button>
-        <ion-button class="button-secondary urkatua-tekla" (click)="seleccionarLetra('M')"><h1>M</h1></ion-button>
-        <ion-button class="button-secondary urkatua-tekla" (click)="seleccionarLetra('N')"><h1>N</h1></ion-button>
-        <ion-button class="button-secondary urkatua-tekla" (click)="seleccionarLetra('Ñ')"><h1>Ñ</h1></ion-button>
-        <ion-button class="button-secondary urkatua-tekla" (click)="seleccionarLetra('O')"><h1>O</h1></ion-button>
-
-        <ion-button class="button-secondary urkatua-tekla" (click)="seleccionarLetra('P')"><h1>P</h1></ion-button>
-        <ion-button class="button-secondary urkatua-tekla" (click)="seleccionarLetra('Q')"><h1>Q</h1></ion-button>
-        <ion-button class="button-secondary urkatua-tekla" (click)="seleccionarLetra('R')"><h1>R</h1></ion-button>
-        <ion-button class="button-secondary urkatua-tekla" (click)="seleccionarLetra('S')"><h1>S</h1></ion-button>
-        <ion-button class="button-secondary urkatua-tekla" (click)="seleccionarLetra('T')"><h1>T</h1></ion-button>
-        <ion-button class="button-secondary urkatua-tekla" (click)="seleccionarLetra('U')"><h1>U</h1></ion-button>
-        <ion-button class="button-secondary urkatua-tekla" (click)="seleccionarLetra('V')"><h1>V</h1></ion-button>
-        <ion-button class="button-secondary urkatua-tekla" (click)="seleccionarLetra('W')"><h1>W</h1></ion-button>
-
-        <ion-button class="button-secondary urkatua-tekla" (click)="seleccionarLetra('X')"><h1>X</h1></ion-button>
-        <ion-button class="button-secondary urkatua-tekla" (click)="seleccionarLetra('Y')"><h1>Y</h1></ion-button>
-        <ion-button class="button-secondary urkatua-tekla" (click)="seleccionarLetra('Z')"><h1>Z</h1></ion-button>
-        <ion-button class="button-primary urkatua-bidali-tekla" (click)="confirmarSeleccion()">Bidali</ion-button>
+        <ion-button *ngFor="let letra of abecedario" class="button-secondary urkatua-tekla" 
+          [ngClass]="{
+            'urkatuabtn-sakatu': letraClase[letra] === 'urkatuabtn-sakatu',
+            'urkatuabtn-zuzen': letraZuzenak.has(letra),
+            'urkatuabtn-oker': letraOkerrak.has(letra)
+          }"
+          (click)="letraAukeratu(letra)">
+          <h1>{{ letra }}</h1>
+        </ion-button>
+        <ion-button class="button-primary urkatua-bidali-tekla" (click)="aukeraKonfirmatu()">Bidali</ion-button>
       </div>
     </div>
     <div class="bottom">
-      <ion-button class="button-primary button-disabled">jarraitu</ion-button>
+      <ion-button [disabled]="!hitzaAsmatuta()" class="button-primary button-disabled" (click)="navigateHome()">jarraitu</ion-button>
     </div>
   </div>
 </ion-content>

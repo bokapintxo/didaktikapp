@@ -349,6 +349,7 @@ ion-button {
 
 .ximg {
     height: 50px;
+    margin-top: 3px;
 }
 
 .teklatua {
@@ -357,6 +358,7 @@ ion-button {
     grid-template-rows: repeat(4, 25%);
     width: 100%;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 .urkatua-tekla {
     height: 60px;
@@ -377,16 +379,15 @@ ion-button {
     --box-shadow: 0 4px 0px 0 #9F8654;
     --border-color: #9F8654;
 }
-
-.urkatubtn-zuzen {
-    --background: #7CFF91;;
+  
+.urkatuabtn-zuzen {
+    --background: #7CFF91;
     --box-shadow: 0 4px 0px 0 #47744F;
     --border-color: #47744F;
 }
 
-.urkatubtn-oker {
+.urkatuabtn-oker {
     --background: #FF7C7C;
     --box-shadow: 0 4px 0px 0 #844444;
     --border-color: #844444;
 }
-
