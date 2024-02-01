@@ -33,9 +33,18 @@ export const routes: Routes = [
   {
     path: 'hitzak-lotu-bi',
     loadComponent: () => import('./hitzak-lotu-bi/hitzak-lotu-bi.page').then( m => m.HitzakLotuBiPage)
-  },  {
+  },
+  {
     path: 'urkatua',
     loadComponent: () => import('./urkatua/urkatua.page').then( m => m.UrkatuaPage)
+  },
+  {
+    path: 'bingo-irakaslea',
+    loadComponent: () => import('./bingo-irakaslea/bingo-irakaslea.page').then( m => m.BingoIrakasleaPage)
+  },
+  {
+    path: 'bingo-rola',
+    loadComponent: () => import('./bingo-rola/bingo-rola.page').then( m => m.BingoRolaPage)
   },
 
 
