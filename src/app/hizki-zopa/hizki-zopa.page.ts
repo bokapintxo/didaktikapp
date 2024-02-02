@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { Haptics } from '@capacitor/haptics';
 
 @Component({
   selector: 'app-hizki-zopa',
@@ -14,6 +15,9 @@ export class HizkiZopaPage implements OnInit {
   board: string[][];
   selected: HTMLElement[] = [];
   words: string[] = ['eskultura', 'estatua', 'frontoi', 'geltoki', 'iturri', 'kiosko', 'parke', 'tren'];
+  audioCorrect: any;
+  audioWrong: any;
+  audioBtn: any;
 
 
   constructor() {
@@ -30,6 +34,14 @@ export class HizkiZopaPage implements OnInit {
   }
 
   ngOnInit() {
+    this.audioBtn = new Audio();
+    this.audioBtn.src = '../../assets/aud/btn_handia.mp3';
+
+    this.audioCorrect = new Audio();
+    this.audioCorrect.src = '../../assets/aud/correct.mp3';
+
+    this.audioWrong = new Audio();
+    this.audioWrong.src = '../../assets/aud/wrong.mp3';
   }
 
   handleClick(id: string) {
@@ -46,5 +58,33 @@ export class HizkiZopaPage implements OnInit {
       element.classList.remove('zopaselected');
     });
     this.selected = [];
+  }
+
+  async pushButton() {
+    this.audioBtn.load();
+    this.audioBtn.play();
+    await Haptics.vibrate({duration: 10});
+    await new Promise(resolve => setTimeout(resolve, 50));
+    await Haptics.vibrate({duration: 10});
+  }
+
+  async incorrectHaptic() {
+    this.audioWrong.load();
+    this.audioWrong.play();
+    await Haptics.vibrate({duration: 50});
+    await new Promise(resolve => setTimeout(resolve, 100));
+    await Haptics.vibrate({duration: 200});
+  }
+
+  async correctHaptic() {
+    this.audioCorrect.load();
+    this.audioCorrect.play();
+    await Haptics.vibrate({duration: 20});
+    await new Promise(resolve => setTimeout(resolve, 80));
+    await Haptics.vibrate({duration: 20});
+    await new Promise(resolve => setTimeout(resolve, 80));
+    await Haptics.vibrate({duration: 20});
+    await new Promise(resolve => setTimeout(resolve, 80));
+    await Haptics.vibrate({duration: 20});
   }
 }
