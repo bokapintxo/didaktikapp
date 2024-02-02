@@ -15,6 +15,7 @@ export class HizkiZopaPage implements OnInit {
   board: string[][];
   selected: HTMLElement[] = [];
   words: string[] = ['eskultura', 'estatua', 'frontoi', 'geltoki', 'iturri', 'kiosko', 'parke', 'tren'];
+  wordPos: string[] = [];
   audioCorrect: any;
   audioWrong: any;
   audioBtn: any;
@@ -42,6 +43,27 @@ export class HizkiZopaPage implements OnInit {
 
     this.audioWrong = new Audio();
     this.audioWrong.src = '../../assets/aud/wrong.mp3';
+  }
+
+  generateBoard() {
+    //generates a starting position for each word
+    for(const word in this.words){
+      const wordLength = this.words[word].length;
+      const isVertical: boolean = Math.random() > 0.5;
+      let row: number;
+      let col: number;
+      //if the word is vertical, the row should be 10 - the length to avoid overflow
+      //and vice versa for horizontal with the column
+      if(isVertical) {
+        row = Math.floor(Math.random() * (10 - wordLength));
+        col = Math.floor(Math.random() * 10);
+      } else {
+        row = Math.floor(Math.random() * 10);
+        col = Math.floor(Math.random() * (10 - wordLength));
+      }
+      this.wordPos.push(row + '-' + col + '-' + isVertical);
+      //TODO: check that we're not repeating positions or overwriting words
+    }
   }
 
   handleClick(id: string) {
@@ -88,3 +110,7 @@ export class HizkiZopaPage implements OnInit {
     await Haptics.vibrate({duration: 20});
   }
 }
+function foreach(arg0: boolean) {
+  throw new Error('Function not implemented.');
+}
+
