@@ -62,6 +62,10 @@ export class HomePage {
     this.router.navigate(['/urkatua']);
   }
 
+  navigateLaberintoa(): void {
+    this.router.navigate(['/laberintoa']);
+  }
+
   navigateTemplate(): void {
     this.router.navigate(['/template-page']);
   }

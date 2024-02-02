@@ -435,3 +435,30 @@ ion-button {
     --box-shadow: 0 4px 0px 0 #844444;
     --border-color: #844444;
 }
+
+/*LABERINTOA*/
+.kontrol-botoiak {
+    margin: auto;
+}
+
+.geziak, .geziak-void {
+    flex:1;
+}
+.geziak-goian {
+    display: flex;
+    justify-content: center;
+}
+.geziak-erdian {
+    display: flex;
+}
+
+.hartzaimg {
+    position: absolute;
+    z-index: 1;
+}
+
+.santamariaimg  {
+    position: absolute;
+    z-index: 0;
+}
+
