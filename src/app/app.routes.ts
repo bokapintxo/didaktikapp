@@ -49,5 +49,9 @@ export const routes: Routes = [
   {
     path: 'bingo-rola',
     loadComponent: () => import('./bingo-rola/bingo-rola.page').then( m => m.BingoRolaPage)
+  },  {
+    path: 'kredituak',
+    loadComponent: () => import('./kredituak/kredituak.page').then( m => m.KredituakPage)
   },
+
 ];

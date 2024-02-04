@@ -70,6 +70,10 @@ export class HomePage {
     this.router.navigate(['/template-page']);
   }
 
+  navigateKredituak(): void {
+    this.router.navigate(['/kredituak']);
+  }
+
   async pushButton() {
     this.audioBtn.load();
     this.audioBtn.play();
