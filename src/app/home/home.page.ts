@@ -50,6 +50,10 @@ export class HomePage {
     this.router.navigate(['/hitzak-lotu-bi']);
   }
 
+  navigateHizkiZopa(): void {
+    this.router.navigate(['/hizki-zopa']);
+  }
+
   navigateDialog(): void {
     this.router.navigate(['/dialog']);
   }
