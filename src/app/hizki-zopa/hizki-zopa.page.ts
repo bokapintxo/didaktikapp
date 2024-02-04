@@ -126,18 +126,31 @@ export class HizkiZopaPage implements OnInit {
     console.log('Completed words:', this.completedWords)
     const element = document.getElementById('zopainner' + id) as HTMLElement;
     if (element) {
+      //make current letter appear in red
       element.classList.add('zopaselected');
       this.selected.push(element);
     }
     if (this.currentSelection !== '') {
+      //search for the clicked pair in the coordinates
       for(const pair of this.coordinatePairs) {
         if (pair[0] === this.currentSelection && pair[1] === id) {
+          //delete the pair from the coordinates
+          const index = this.coordinatePairs.indexOf(pair);
+          if (index > -1) {
+            this.coordinatePairs.splice(index, 1);
+          }
           this.correctHaptic();
-          console.log('CORRECT!')
           this.completedWords += 1;
           this.currentSelection = '';
           this.handleReset();
           this.colorWord(pair[0], pair[1]);
+          if(this.completedWords === 8) {
+            console.log('==COMPLETED!==');
+            const continueBtn = document.getElementById('zopaJarraituBtn') as HTMLElement;
+            if (continueBtn) {
+              continueBtn.classList.remove('button-disabled');
+            }
+          }
           return;
         }
       }
