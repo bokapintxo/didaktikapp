@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-laberintoa',
@@ -14,11 +15,11 @@ export class LaberintoaPage implements OnInit {
 
   // Hartzaren posizioa
   posX: number = 150;
-  posY: number = -300;
+  posY: number = 0;
 
   // Santa Mariaren hasierako posizioa
   Xsm: number = 200;
-  Ysm: number = 150;
+  Ysm: number = 450;
 
   hartzaKoordinadak: number[] = [0,3];
   hartzarenPos:number = 4;
@@ -118,6 +119,10 @@ export class LaberintoaPage implements OnInit {
 
   botoiaAktibatu(): void {
     document.getElementById('laberintoajarraitu')?.classList.remove('button-disabled');
+    const geziakElements = document.getElementsByClassName('geziak') as HTMLCollectionOf<HTMLElement>;
+    for (let i = 0; i < geziakElements.length; i++) {
+      geziakElements[i]?.classList.add('button-disabled');
+    }
   }
 
   koordenadakHartu(): {x: number, y: number} [] {
@@ -162,8 +167,7 @@ export class LaberintoaPage implements OnInit {
     }
   }
 
-  
-  constructor() { }
+  constructor(private router: Router) {}
 
   ngOnInit() {
     const laberintoSantaMariaImg = document.querySelector('.santamariaimg') as HTMLElement;
@@ -173,6 +177,26 @@ export class LaberintoaPage implements OnInit {
 
   ngAfterViewInit() {
     this.initgc();
+  }
+
+  reset(): void {
+    this.posX = 150;
+    this.posY = 0;
+    this.hartzaKoordinadak = [0,3];
+    this.hartzarenPos = 4;
+    this.initgc();
+    this.posizioaEguneratu(0);
+
+    document.getElementById('laberintoajarraitu')?.classList.add('button-disabled');
+    const geziakElements = document.getElementsByClassName('geziak') as HTMLCollectionOf<HTMLElement>;
+    for (let i = 0; i < geziakElements.length; i++) {
+      geziakElements[i]?.classList.remove('button-disabled');
+    }
+  }
+
+  navigateHome(): void {
+    this.router.navigate(['/home']);
+    this.reset();
   }
 
 }

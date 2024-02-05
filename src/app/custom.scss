@@ -438,7 +438,7 @@ ion-button {
 
 /*LABERINTOA*/
 .kontrol-botoiak {
-    margin: auto;
+    margin-bottom: 10px;
 }
 
 .geziak, .geziak-void {
@@ -450,6 +450,10 @@ ion-button {
 }
 .geziak-erdian {
     display: flex;
+}
+
+.center {
+    align-items: center;
 }
 
 .hartzaimg {
@@ -470,10 +474,7 @@ ion-button {
     display: flex;
     flex-wrap: wrap;
     width: 400px;
-}
-
-.laberintoouter {
-    width: 400px
+    border: solid 2px black;
 }
 
 .kasilla {
