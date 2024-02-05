@@ -454,11 +454,42 @@ ion-button {
 
 .hartzaimg {
     position: absolute;
-    z-index: 1;
+    z-index: 2;
+    margin-top: 5px;
+    margin-left: 5px;
 }
 
 .santamariaimg  {
     position: absolute;
-    z-index: 0;
+    z-index: 1;
+    margin-top: 5px;
+    margin-left: 5px;
 }
 
+.laberintoa {
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+}
+
+.kasilla {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #000;
+}
+
+.border-top {
+    border-top: solid 2px black;
+}
+
+.border-right {
+    border-top: solid 2px black;
+}
+
+.border-bottom {
+    border-top: solid 2px black;
+}
+
+.border-left {
+    border-top: solid 2px black;
+}

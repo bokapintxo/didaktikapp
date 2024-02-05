@@ -6,11 +6,16 @@
     </div>
     <div class="content">
       <div class="laberintoa">
+
         <div class="hartzadiv">
           <img class="hartzaimg" src="../../assets/laberintoa-irudiak/hartza.png" alt="">
           <img class="santamariaimg" src="../../assets/laberintoa-irudiak/santamaria.png" alt="">
         </div>
-        <div></div>
+
+        <div *ngFor="let koordenada of koordenadakHartu()" class="kasilla" [ngClass]="klaseakHartu(laberintoa[koordenada.y][koordenada.x])">
+          {{laberintoa[koordenada.y][koordenada.x]}}
+        </div>
+        
       </div>
       
     </div>
@@ -27,7 +32,7 @@
           <ion-button class="button-primary geziak" (click)="mugituEskuinera()"><img src="../../assets/laberintoa-irudiak/gezia-eskuina.svg" alt=""></ion-button>
         </div>
       </div>
-      <ion-button class="button-primary button-disabled">jarraitu</ion-button>
+      <ion-button id="laberintoajarraitu" class="button-primary button-disabled">jarraitu</ion-button>
     </div>
   </div>
 </ion-content>

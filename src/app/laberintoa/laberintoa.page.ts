@@ -18,21 +18,21 @@ export class LaberintoaPage implements OnInit {
 
   // Santa Mariaren hasierako posizioa
   Xsm: number = 200;
-  Ysm: number = 200;
+  Ysm: number = 150;
 
   hartzaKoordinadak: number[] = [0,3];
   hartzarenPos:number = 4;
 
   laberintoa: number[][] = [
     [9 , 5 , 1 , 5 , 5 , 5 , 5 , 3 ],
-    [8 , 11, 12, 5 , 1 , 9 , 7 , 10],
-    [8 , 12, 5 , 5 , 6 , 12, 3 , 10],
-    [8 , 11, 9 , 5 , 3 , 11, 12, 2 ],
+    [10, 11, 12, 5 , 1 , 9 , 7 , 10],
+    [10, 12, 5 , 5 , 6 , 12, 3 , 10],
+    [10, 11, 9 , 5 , 3 , 11, 12, 2 ],
     [8 , 2 , 10, 11, 10, 12, 5 , 2 ],
-    [8 , 14, 12, 2 , 12, 3 , 9 , 6 ],
+    [10, 14, 12, 2 , 12, 3 , 9 , 6 ],
     [8 , 1 , 7 , 8 , 7 , 10, 12, 3 ],
-    [8 , 12, 5 , 6 , 9 , 6 , 11, 10],
-    [8 , 13, 1 , 3 , 10, 9 , 6 , 10],
+    [10, 12, 5 , 6 , 9 , 6 , 11, 10],
+    [10, 13, 1 , 3 , 10, 9 , 6 , 10],
     [12, 5 , 6 , 14, 14, 12, 5 , 6 ],
   ]
 
@@ -111,16 +111,30 @@ export class LaberintoaPage implements OnInit {
     console.log("HartzarenPos: " + this.hartzarenPos);
     console.log("HartzaKoordinadak: " + this.hartzaKoordinadak);
 
-//Jokuaren logika
-
-    //Hartza azken puntura heltzean jokua amaituko da
     if(this.posX === this.Xsm && this.posY === this.Ysm) {
-      alert('Zorionak, irabazi duzu!');
+      this.botoiaAktibatu();
     }
-
-
-
   }
+
+  botoiaAktibatu(): void {
+    document.getElementById('laberintoajarraitu')?.classList.remove('button-disabled');
+  }
+
+  koordenadakHartu(): {x: number, y: number} [] {
+    const koordenadak: {x: number, y: number} [] = [];
+
+    for (let fila = 0; fila < this.laberintoa.length; fila++) {
+      for (let columna = 0; columna < this.laberintoa[fila].length; columna++) {
+        koordenadak.push({ x: columna, y: fila });
+      }
+    }
+    return koordenadak;
+  }
+
+  klaseakHartu(zenbakia: number): string {
+    return "laberintoa-pareta" + zenbakia;
+  }
+
   
   constructor() { }
 
