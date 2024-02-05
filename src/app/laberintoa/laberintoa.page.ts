@@ -13,14 +13,18 @@ import { IonicModule } from '@ionic/angular';
 export class LaberintoaPage implements OnInit {
 
   // Hartzaren posizioa
-  posX: number = 0;
-  posY: number = -150;
+  posX: number = 150;
+  posY: number = -300;
 
   // Santa Mariaren hasierako posizioa
-  Xsm: number = 0;
-  Ysm: number = 0;
+  Xsm: number = 200;
+  Ysm: number = 200;
+
+  hatzaPosLab: number = 4;
 
   laberintoa: number[][] = [
+    //hartza [0][3]
+    //santamaria [9][4]
     [9 , 5 , 1 , 4 , 5 , 5 , 5 , 3 ],
     [8 , 11, 12, 5 , 1 , 9 , 7 , 10],
     [8 , 12, 5 , 5 , 6 , 12, 3 , 10],
@@ -34,8 +38,10 @@ export class LaberintoaPage implements OnInit {
   ]
 
   mugituGora(): void {
-    this.posY -= 50;
-    this.posizioaEguneratu();
+    if(this.hatzaPosLab == 4) {
+      this.posY -= 50;
+      this.posizioaEguneratu();
+    }
   }
 
   mugituEzkerrera(): void {
@@ -57,12 +63,16 @@ export class LaberintoaPage implements OnInit {
     const laberintoHartzaImg = document.querySelector('.hartzaimg') as HTMLElement;
     laberintoHartzaImg.style.transform = `translate(${this.posX}px, ${this.posY}px)`;
 
+
+
 //Jokuaren logika
 
     //Hartza azken puntura heltzean jokua amaituko da
     if(this.posX === this.Xsm && this.posY === this.Ysm) {
       alert('Zorionak, irabazi duzu!');
     }
+
+
 
   }
   
