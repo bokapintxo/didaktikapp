@@ -53,5 +53,9 @@ export const routes: Routes = [
     path: 'kredituak',
     loadComponent: () => import('./kredituak/kredituak.page').then( m => m.KredituakPage)
   },
+  {
+    path: 'atribuzioak',
+    loadComponent: () => import('./atribuzioak/atribuzioak.page').then( m => m.AtribuzioakPage)
+  },
 
 ];

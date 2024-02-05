@@ -3,20 +3,19 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule, NavController } from '@ionic/angular';
 import { Haptics } from '@capacitor/haptics';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-kredituak',
-  templateUrl: './kredituak.page.html',
-  styleUrls: ['./kredituak.page.scss'],
+  selector: 'app-atribuzioak',
+  templateUrl: './atribuzioak.page.html',
+  styleUrls: ['./atribuzioak.page.scss'],
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule]
 })
-export class KredituakPage implements OnInit {
+export class AtribuzioakPage implements OnInit {
   audioBtn: any;
   audioBtnSecondary: any;
 
-  constructor(private navCtrl: NavController, private router: Router) { }
+  constructor(private navCtrl: NavController) { }
 
   ngOnInit() {
     this.audioBtn = new Audio();
@@ -42,9 +41,5 @@ export class KredituakPage implements OnInit {
 
   goBack() {
     this.navCtrl.back();
-  }
-
-  navigateAttribution() {
-    this.router.navigate(['/atribuzioak']);
   }
 }
