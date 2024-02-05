@@ -359,6 +359,39 @@ ion-button {
     --border-color: #77476C;
 }
 
+
+/*HIZKI ZOPA*/
+.zopatable {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.zopainner {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #90654C;
+    background: #FED179;
+    width: 10%;
+    aspect-ratio: 1/1;
+    font-size: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+.zopacorrect {
+    background: #7CFF91;
+}
+
+.zopaselected {
+    background: #FF7C7C;
+}
+
+
 /*URKATUA*/
 .hitzakflex {
     display: flex;
