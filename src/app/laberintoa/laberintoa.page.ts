@@ -118,6 +118,8 @@ export class LaberintoaPage implements OnInit {
       alert('Zorionak, irabazi duzu!');
     }
 
+
+
   }
   
   constructor() { }
