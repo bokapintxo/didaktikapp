@@ -468,3 +468,65 @@ ion-button {
     --box-shadow: 0 4px 0px 0 #844444;
     --border-color: #844444;
 }
+
+/*LABERINTOA*/
+.kontrol-botoiak {
+    margin-bottom: 10px;
+}
+
+.geziak, .geziak-void {
+    flex:1;
+}
+.geziak-goian {
+    display: flex;
+    justify-content: center;
+}
+.geziak-erdian {
+    display: flex;
+}
+
+.center {
+    align-items: center;
+}
+
+.hartzaimg {
+    position: absolute;
+    z-index: 2;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.santamariaimg  {
+    position: absolute;
+    z-index: 1;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.laberintoa {
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+    border: solid 2px black;
+}
+
+.kasilla {
+    width: 50px;
+    height: 50px;
+}
+
+.border-top {
+    border-top: solid 2px black;
+}
+
+.border-right {
+    border-right: solid 2px black;
+}
+
+.border-bottom {
+    border-bottom: solid 2px black;
+}
+
+.border-left {
+    border-left: solid 2px black;
+}
