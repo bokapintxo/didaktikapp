@@ -11,11 +11,15 @@
           <img class="hartzaimg" src="../../assets/laberintoa-irudiak/hartza.png" alt="">
           <img class="santamariaimg" src="../../assets/laberintoa-irudiak/santamaria.png" alt="">
         </div>
-
-        <div *ngFor="let koordenada of koordenadakHartu()" class="kasilla" [ngClass]="klaseakHartu(laberintoa[koordenada.y][koordenada.x])">
+        <!-- AIMARREN BERTSIOA
+        <div *ngFor="let koordenada of koordenadakHartu() class="kasilla">
           {{laberintoa[koordenada.y][koordenada.x]}}
         </div>
-        
+        -->
+
+        <tr class="laberintoouter" *ngFor="let row of laberintoa; let j = index">
+          <td class="kasilla" *ngFor="let char of row; let i = index;" id="kasilla{{i}}{{j}}">{{ char }}</td>
+        </tr>
       </div>
       
     </div>

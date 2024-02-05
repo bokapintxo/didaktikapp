@@ -472,10 +472,13 @@ ion-button {
     width: 400px;
 }
 
+.laberintoouter {
+    width: 400px
+}
+
 .kasilla {
     width: 50px;
     height: 50px;
-    border: 2px solid #000;
 }
 
 .border-top {
@@ -483,13 +486,13 @@ ion-button {
 }
 
 .border-right {
-    border-top: solid 2px black;
+    border-right: solid 2px black;
 }
 
 .border-bottom {
-    border-top: solid 2px black;
+    border-bottom: solid 2px black;
 }
 
 .border-left {
-    border-top: solid 2px black;
+    border-left: solid 2px black;
 }

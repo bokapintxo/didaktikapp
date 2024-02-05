@@ -25,7 +25,7 @@ export class LaberintoaPage implements OnInit {
 
   laberintoa: number[][] = [
     [9 , 5 , 1 , 5 , 5 , 5 , 5 , 3 ],
-    [10, 11, 12, 5 , 1 , 9 , 7 , 10],
+    [10, 11, 12, 5 , 3 , 9 , 7 , 10],
     [10, 12, 5 , 5 , 6 , 12, 3 , 10],
     [10, 11, 9 , 5 , 3 , 11, 12, 2 ],
     [8 , 2 , 10, 11, 10, 12, 5 , 2 ],
@@ -131,8 +131,35 @@ export class LaberintoaPage implements OnInit {
     return koordenadak;
   }
 
-  klaseakHartu(zenbakia: number): string {
-    return "laberintoa-pareta" + zenbakia;
+  initgc(): void {
+    for (let i = 0; i < (document.querySelectorAll(".kasilla")).length; i++) {
+      let element = document.querySelectorAll(".kasilla")[i] as HTMLElement;
+      let num = this.laberintoa[this.koordenadakHartu()[i].y][this.koordenadakHartu()[i].x];
+      this.gc(num, element)
+    }
+  }
+
+  gc(z:number, element:HTMLElement): void {
+    let ls: string[] = [];
+    if (z >= 8) {
+      z -= 8;
+      ls.push("border-left");
+    }
+    if (z >= 4) {
+      z -= 4;
+      ls.push("border-bottom");
+    }
+    if (z >= 2) {
+      z -= 2;
+      ls.push("border-right");
+    }
+    if (z >= 1) {
+      z -= 1;
+      ls.push("border-top");
+    }
+    for (let i = 0; i < ls.length; i++) {
+      element.classList.add(ls[i]);
+    }
   }
 
   
@@ -142,6 +169,10 @@ export class LaberintoaPage implements OnInit {
     const laberintoSantaMariaImg = document.querySelector('.santamariaimg') as HTMLElement;
     laberintoSantaMariaImg.style.transform = `translate(${this.Xsm}px, ${this.Ysm}px)`;
     this.posizioaEguneratu(0);
+  }
+
+  ngAfterViewInit() {
+    this.initgc();
   }
 
 }
