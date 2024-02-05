@@ -57,5 +57,9 @@ export const routes: Routes = [
     path: 'atribuzioak',
     loadComponent: () => import('./atribuzioak/atribuzioak.page').then( m => m.AtribuzioakPage)
   },
+  {
+    path: 'argazkiak',
+    loadComponent: () => import('./argazkiak/argazkiak.page').then( m => m.ArgazkiakPage)
+  },
 
 ];
