@@ -49,7 +49,8 @@ export const routes: Routes = [
   {
     path: 'bingo-rola',
     loadComponent: () => import('./bingo-rola/bingo-rola.page').then( m => m.BingoRolaPage)
-  },  {
+  },
+  {
     path: 'kredituak',
     loadComponent: () => import('./kredituak/kredituak.page').then( m => m.KredituakPage)
   },
@@ -61,5 +62,8 @@ export const routes: Routes = [
     path: 'argazkiak',
     loadComponent: () => import('./argazkiak/argazkiak.page').then( m => m.ArgazkiakPage)
   },
-
+  {
+    path: 'laberintoa',
+    loadComponent: () => import('./laberintoa/laberintoa.page').then( m => m.LaberintoaPage)
+  },
 ];
