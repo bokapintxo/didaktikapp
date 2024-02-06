@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, Platform } from '@ionic/angular';
 import { Haptics } from '@capacitor/haptics';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-bingo-rola',
@@ -15,14 +16,17 @@ import { Router } from '@angular/router';
 export class BingoRolaPage implements OnInit {
   audioBtn: any;
   audioBtnSecondary: any;
+  private backButtonSubscription: Subscription = new Subscription();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private platform: Platform) { }
 
   navigateBingoa(): void {
+    this.backButtonSubscription.unsubscribe();
     this.router.navigate(['/bingoa']);
   }
 
   navigateBingoRng(): void {
+    this.backButtonSubscription.unsubscribe();
     this.router.navigate(['/bingo-irakaslea']);
   }
 
@@ -32,6 +36,10 @@ export class BingoRolaPage implements OnInit {
 
     this.audioBtnSecondary = new Audio();
     this.audioBtnSecondary.src = '../../assets/aud/btn_txikia.mp3';
+
+    this.backButtonSubscription = this.platform.backButton.subscribeWithPriority(9999, () => {
+      // Do nothing here to disable the back button
+    });
   }
 
   async pushButton() {

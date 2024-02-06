@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonButton, IonicModule } from '@ionic/angular';
+import { IonButton, IonicModule, NavController, Platform } from '@ionic/angular';
 import { state } from '@angular/animations';
 import { Router } from '@angular/router';
 import { Haptics } from '@capacitor/haptics';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-bingoa',
@@ -21,8 +22,9 @@ export class BingoaPage implements OnInit {
   audioCorrect: any;
   audioButton: any;
   audioSecondaryButton: any;
-
-  constructor(private router: Router, private http: HttpClient) {
+  private backButtonSubscription: Subscription = new Subscription();
+  
+  constructor(private router: Router, private http: HttpClient, private navCtrl: NavController, private platform: Platform) {
     
   }
 
@@ -34,6 +36,9 @@ export class BingoaPage implements OnInit {
     this.audioButton.src = '../../assets/aud/btn_handia.mp3';
     this.audioSecondaryButton = new Audio();
     this.audioSecondaryButton.src = '../../assets/aud/btn_txikia.mp3';
+    this.backButtonSubscription = this.platform.backButton.subscribeWithPriority(9999, () => {
+      // Do nothing here to disable the back button
+    });
   }
 
   loadData() {
@@ -117,5 +122,13 @@ export class BingoaPage implements OnInit {
     await Haptics.vibrate({duration: 20});
     await new Promise(resolve => setTimeout(resolve, 80));
     await Haptics.vibrate({duration: 20});
+  }
+
+  goBack() {
+    this.navCtrl.back();
+  }
+  
+  ngOnDestroy() {
+    this.backButtonSubscription.unsubscribe();
   }
 }

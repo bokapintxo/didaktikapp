@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, NavController, Platform } from '@ionic/angular';
 import { Haptics } from '@capacitor/haptics';
-import { generate } from 'rxjs';
+import { Subscription } from 'rxjs/internal/Subscription';
 
 @Component({
   selector: 'app-hizki-zopa',
@@ -44,7 +44,9 @@ export class HizkiZopaPage implements OnInit {
   audioBtn: any;
 
 
-  constructor() {
+  private backButtonSubscription: Subscription = new Subscription();
+
+  constructor(private navCtrl: NavController, private platform: Platform) { 
     this.board = [] = this.predefinedBoard;
 
     /*
@@ -68,6 +70,10 @@ export class HizkiZopaPage implements OnInit {
 
     this.audioWrong = new Audio();
     this.audioWrong.src = '../../assets/aud/wrong.mp3';
+
+    this.backButtonSubscription = this.platform.backButton.subscribeWithPriority(9999, () => {
+      // Do nothing here to disable the back button
+    });
   }
 
   /*
@@ -223,5 +229,14 @@ export class HizkiZopaPage implements OnInit {
     await Haptics.vibrate({duration: 20});
     await new Promise(resolve => setTimeout(resolve, 80));
     await Haptics.vibrate({duration: 20});
+  }
+
+  
+  goBack() {
+    this.navCtrl.back();
+  }
+
+  ngOnDestroy() {
+    this.backButtonSubscription.unsubscribe();
   }
 }

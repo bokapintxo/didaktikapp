@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule, NavController } from '@ionic/angular';
+import { IonicModule, NavController, Platform } from '@ionic/angular';
 import { Haptics } from '@capacitor/haptics';
+import { Subscription } from 'rxjs/internal/Subscription';
 
 @Component({
   selector: 'app-argazkiak',
@@ -12,7 +13,7 @@ import { Haptics } from '@capacitor/haptics';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class ArgazkiakPage implements OnInit {
-  audioBtn: any;
+  audioBtn: any;  
 
   constructor(private navCtrl: NavController) { }
 

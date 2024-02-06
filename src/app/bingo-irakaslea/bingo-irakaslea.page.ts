@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, NavController, Platform } from '@ionic/angular';
 import { Haptics } from '@capacitor/haptics';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-bingo-irakaslea',
@@ -17,8 +18,9 @@ export class BingoIrakasleaPage implements OnInit {
   audioWrong: any;
   audioButton: any;
   audioSecondaryButton: any;
+  private backButtonSubscription: Subscription = new Subscription();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private navCtrl: NavController, private platform: Platform) { }
 
   ngOnInit() {
     this.loadData();
@@ -27,6 +29,10 @@ export class BingoIrakasleaPage implements OnInit {
 
     this.audioSecondaryButton = new Audio();
     this.audioSecondaryButton.src = '../../assets/aud/btn_txikia.mp3';
+
+    this.backButtonSubscription = this.platform.backButton.subscribeWithPriority(9999, () => {
+      // Do nothing here to disable the back button
+    });
   }
 
   data: { name: string, index: number }[] = [];
@@ -90,4 +96,11 @@ export class BingoIrakasleaPage implements OnInit {
     await Haptics.vibrate({duration: 5});
   }
 
+  goBack() {
+    this.navCtrl.back();
+  }
+  
+  ngOnDestroy() {
+    this.backButtonSubscription.unsubscribe();
+  }
 }

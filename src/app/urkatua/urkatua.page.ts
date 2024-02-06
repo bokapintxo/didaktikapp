@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { IonicModule, NavController, Platform } from '@ionic/angular';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-urkatua',
@@ -22,9 +22,15 @@ export class UrkatuaPage implements OnInit {
   letraClase: { [letra: string]: string } = {};
   letraZuzenak: Set<string> = new Set<string>();
   letraOkerrak: Set<string> = new Set<string>();
+  
+  private backButtonSubscription: Subscription = new Subscription();
 
-  constructor(private router: Router) {}
-  ngOnInit(): void {}
+  constructor(private navCtrl: NavController, private platform: Platform) {}
+  ngOnInit(): void {
+    this.backButtonSubscription = this.platform.backButton.subscribeWithPriority(9999, () => {
+      // Do nothing here to disable the back button
+    });
+  }
 
   letraAukeratu(letra: string): void {
     if(this.hitzaAsmatuta()) {
@@ -88,8 +94,11 @@ export class UrkatuaPage implements OnInit {
     return true;
   }
 
-  navigateHome(): void {
-    this.router.navigate(['/home']);
-    this.jokuaReseteatu();
+  goBack() {
+    this.navCtrl.back();
+  }
+
+  ngOnDestroy() {
+    this.backButtonSubscription.unsubscribe();
   }
 }

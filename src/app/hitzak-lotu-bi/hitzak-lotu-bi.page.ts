@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, NavController, Platform } from '@ionic/angular';
+import { Subscription } from 'rxjs/internal/Subscription';
 
 @Component({
   selector: 'app-hitzak-lotu-bi',
@@ -12,7 +13,7 @@ import { IonicModule } from '@ionic/angular';
 })
 
 export class HitzakLotuBiPage implements OnInit {
-
+  private backButtonSubscription: Subscription = new Subscription();
   estilosBotones: { [key: string]: string } = {};
   parejasFormadas: { [key: string]: boolean } = {};
   botonesSeleccionados: { [key: string]: boolean } = {};
@@ -70,9 +71,20 @@ export class HitzakLotuBiPage implements OnInit {
     return botones.every(boton => this.parejasFormadas[boton]);
   }
   
-  constructor() { }
+  constructor(private navCtrl: NavController, private platform: Platform) { }
 
   ngOnInit() {
+    this.backButtonSubscription = this.platform.backButton.subscribeWithPriority(9999, () => {
+      // Do nothing here to disable the back button
+    });
+  }
+
+  goBack() {
+    this.navCtrl.back();
+  }
+
+  ngOnDestroy() {
+    this.backButtonSubscription.unsubscribe();
   }
 
 }
