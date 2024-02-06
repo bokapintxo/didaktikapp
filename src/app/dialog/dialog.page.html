@@ -1,7 +1,7 @@
 <ion-content [fullscreen]="true">
   <div class="global">
     <div class="topbtns">
-      <ion-button class="button-secondary topbtn">Argazkiak <img src="../../assets/icon/ico_argazkiak.svg" class="topbtnico"></ion-button>
+      <ion-button class="button-secondary topbtn" (click)="pushSecondaryButton(); navigateImg()">Argazkiak <img src="../../assets/icon/ico_argazkiak.svg" class="topbtnico"></ion-button>
       <ion-button class="button-secondary topbtn">Saltatu <img src="../../assets/icon/ico_fastforward.svg" class="topbtnico"></ion-button>
     </div>
     <div class="content">
@@ -15,7 +15,7 @@
         <div id="personaje-mensaje" (click)="pasarMensaje()">
             <p id="mensaje"></p>
         </div>
-        <div id="img">
+        <div id="tboxtriangle">
             <img src="../../assets/dialog/dialog-vector.svg" alt="">
         </div>
       </div>

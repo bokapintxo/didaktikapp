@@ -1,34 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule, Platform } from '@ionic/angular';
+import { IonicModule, NavController } from '@ionic/angular';
 import { Haptics } from '@capacitor/haptics';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-bingo-rola',
-  templateUrl: './bingo-rola.page.html',
-  styleUrls: ['./bingo-rola.page.scss'],
+  selector: 'app-kredituak',
+  templateUrl: './kredituak.page.html',
+  styleUrls: ['./kredituak.page.scss'],
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule]
 })
-export class BingoRolaPage implements OnInit {
+export class KredituakPage implements OnInit {
   audioBtn: any;
   audioBtnSecondary: any;
-  private backButtonSubscription: Subscription = new Subscription();
 
-  constructor(private router: Router, private platform: Platform) { }
-
-  navigateBingoa(): void {
-    this.backButtonSubscription.unsubscribe();
-    this.router.navigate(['/bingoa']);
-  }
-
-  navigateBingoRng(): void {
-    this.backButtonSubscription.unsubscribe();
-    this.router.navigate(['/bingo-irakaslea']);
-  }
+  constructor(private navCtrl: NavController, private router: Router) { }
 
   ngOnInit() {
     this.audioBtn = new Audio();
@@ -36,10 +24,6 @@ export class BingoRolaPage implements OnInit {
 
     this.audioBtnSecondary = new Audio();
     this.audioBtnSecondary.src = '../../assets/aud/btn_txikia.mp3';
-
-    this.backButtonSubscription = this.platform.backButton.subscribeWithPriority(9999, () => {
-      // Do nothing here to disable the back button
-    });
   }
 
   async pushButton() {
@@ -54,5 +38,13 @@ export class BingoRolaPage implements OnInit {
     this.audioBtnSecondary.load();
     this.audioBtnSecondary.play();
     await Haptics.vibrate({duration: 5});
+  }
+
+  goBack() {
+    this.navCtrl.back();
+  }
+
+  navigateAttribution() {
+    this.router.navigate(['/atribuzioak']);
   }
 }

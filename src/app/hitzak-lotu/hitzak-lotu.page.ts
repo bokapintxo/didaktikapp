@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
-
+import { IonicModule, Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs/internal/Subscription';
 
 @Component({
   selector: 'app-hitzak-lotu',
@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 })
 
 export class HitzakLotuPage implements OnInit {
+  private backButtonSubscription: Subscription = new Subscription();
 
   estilosBotones: { [key: string]: string } = {};
   parejasFormadas: { [key: string]: boolean } = {};
@@ -73,12 +74,16 @@ export class HitzakLotuPage implements OnInit {
   }
 
   navigateHitzakLotuBi(): void {
+    this.backButtonSubscription.unsubscribe();
     this.router.navigate(['/hitzak-lotu-bi']);
   }
   
-  constructor(private router: Router) { }
+  constructor(private router: Router, private platform: Platform) { }
 
   ngOnInit() {
+    this.backButtonSubscription = this.platform.backButton.subscribeWithPriority(9999, () => {
+      // Do nothing here to disable the back button
+    });
   }
 
 }

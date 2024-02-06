@@ -123,8 +123,9 @@ ion-button {
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 100%;
+    width: calc(100% - 20px);
     padding: 20px 10px;
+    margin-left: 10px;
 }
 
 .toptitle {
@@ -227,11 +228,52 @@ ion-button {
     margin-top: 0.6rem;
 }
 
-#img {
+#tboxtriangle {
     margin-right: 10px;
     margin-top: -25px;
     float: right;
     animation: parpadeo 0.9s infinite;
+}
+
+/*ARGAZKIAK*/
+.argazkiak {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    border-radius: 15px;
+}
+
+.argazkiak > h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 2rem;
+}
+
+.argazkiak > img {
+    border-radius: 15px;
+    width: 100%;
+    aspect-ratio: 1/1;
+    border: 2px solid #90654C;
+    object-fit: cover;
+}
+
+
+/*KREDITUAK*/
+.kredituak > h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 2rem;
+}
+
+.kredituak > h4 {
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
+    font-size: 1.10rem;
 }
 
 
