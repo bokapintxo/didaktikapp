@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { DialogService } from '../services/dialog.service';
+import { Router } from '@angular/router';
+import { Haptics } from '@capacitor/haptics';
 
 @Component({
   selector: 'app-dialog',
@@ -14,9 +16,13 @@ import { DialogService } from '../services/dialog.service';
 })
 
 export class DialogPage implements OnInit {
-  constructor(private dialogService: DialogService) {}
+  audioBtnSecondary: any;
+
+  constructor(private dialogService: DialogService, private router: Router) {}
 
   ngOnInit(): void {
+    this.audioBtnSecondary = new Audio();
+    this.audioBtnSecondary.src = '../../assets/aud/btn_txikia.mp3';
     this.fetchConversacion();
   }
 
@@ -35,5 +41,15 @@ export class DialogPage implements OnInit {
 
   pasarMensaje(): void {
     this.fetchConversacion();
+  }
+
+  navigateImg() {
+    this.router.navigate(['/argazkiak']);
+  }
+
+  async pushSecondaryButton() {
+    this.audioBtnSecondary.load();
+    this.audioBtnSecondary.play();
+    await Haptics.vibrate({duration: 5});
   }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, NavController } from '@ionic/angular';
 import { Haptics } from '@capacitor/haptics';
 
 @Component({
@@ -14,7 +14,7 @@ import { Haptics } from '@capacitor/haptics';
 export class ArgazkiakPage implements OnInit {
   audioBtn: any;
 
-  constructor() { }
+  constructor(private navCtrl: NavController) { }
 
   ngOnInit() {
     this.audioBtn = new Audio();
@@ -27,5 +27,9 @@ export class ArgazkiakPage implements OnInit {
     await Haptics.vibrate({duration: 10});
     await new Promise(resolve => setTimeout(resolve, 50));
     await Haptics.vibrate({duration: 10});
+  }
+
+  goBack() {
+    this.navCtrl.back();
   }
 }
