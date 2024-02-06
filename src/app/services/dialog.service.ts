@@ -5,7 +5,17 @@ import { Injectable } from '@angular/core';
 })
 export class DialogService {
   constructor() { }
-
+/*
+  test indiceConversacion 
+    0 -> lehenengo geralekua
+    7 -> bigarren geralekua
+    19 -> hirugarren geralekua
+    38 -> laugarren geralekua
+    52 -> bostgarren geralekua
+    69 -> seigarren geralekua
+    107 -> zazpigarren geralekua
+    129 -> agurra 
+*/
   private indiceConversacion = 0;
   private escribiendo = false;
 
