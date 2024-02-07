@@ -1,6 +1,9 @@
 [   
     {"personaje": "Hartza", "mensaje": "Ongi etorri Durangotarrak!"}, 
     {"personaje":"Hartza", "mensaje": "Hartza deitzen naiz, eta gaurko egunean abentura zoragarri honetan lagunduko dizuet."}, 
+
+    {"personaje":"PROBA", "mensaje": "kaixo egunon argazkiak"}, 
+
     {"personaje":"Hartza", "mensaje": "Dakizuenez, Durango leku zoragarriz betetako herria da, baina azkenengo urteetan munduko elementu kultural garrantzitsuenak desagertzen ari dira."},
     {"personaje":"Hartza", "mensaje":"Zaintzen ez baditugu, desagertzen jarraituko dute, ez al da tristea?"},
     {"personaje":"Hartza", "mensaje": "Horregaitik behar zaituztegu!"},

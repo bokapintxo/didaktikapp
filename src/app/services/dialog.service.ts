@@ -19,11 +19,12 @@ export class DialogService {
   private indiceConversacion = 0;
   private escribiendo = false;
 
-  mostrarConversacion(conversacion: any[], callback: Function): void {
+  mostrarConversacion(conversacion: any[], callback: Function, index:number): number {
+    
     if (this.escribiendo) {
-      return;
+      return 0;
     }
-
+    
     this.escribiendo = true;
 
     const linea = conversacion[this.indiceConversacion];
@@ -34,11 +35,22 @@ export class DialogService {
     if (!personajeElement || !mensajeElement) {
       console.error("No se pudo encontrar uno o ambos elementos en el DOM.");
       this.escribiendo = false;
-      return;
+      return -1;
     }
 
     personajeElement.innerText = linea.personaje;
     mensajeElement.innerHTML = '';
+
+    if (index > this.indiceConversacion) {
+      this.indiceConversacion = index;
+    }
+
+    console.log(index + " input index");
+    console.log(this.indiceConversacion + " ona")
+
+    if(linea.personaje !== 'Hartza') {
+      return 800;
+    }
 
     const mensajeTexto = linea.mensaje.split('');
     let i = 0;
@@ -79,5 +91,6 @@ export class DialogService {
     }
 
     agregarCaracter();
+    return this.indiceConversacion;
   }
 }

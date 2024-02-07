@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule, Platform } from '@ionic/angular';
+import { IonicModule, NavController, Platform } from '@ionic/angular';
 
 import { DialogService } from '../services/dialog.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Haptics } from '@capacitor/haptics';
 import { Subscription } from 'rxjs';
 
@@ -18,27 +18,39 @@ import { Subscription } from 'rxjs';
 
 export class DialogPage implements OnInit {
   audioBtnSecondary: any;
-
+  i: number = 0;
   private backButtonSubscription: Subscription = new Subscription();
 
-  constructor(private dialogService: DialogService, private router: Router, private platform: Platform) {}
+  constructor(private dialogService: DialogService, private route: ActivatedRoute, private router: Router, private platform: Platform, private navi: NavController) {}
 
   ngOnInit(): void {
     this.audioBtnSecondary = new Audio();
-    this.audioBtnSecondary.src = '../../assets/aud/btn_txikia.mp3';
-    this.fetchConversacion();
+    this.audioBtnSecondary.src = '../../assets/aud/btn_txikia.mp3';    
     this.backButtonSubscription = this.platform.backButton.subscribeWithPriority(9999, () => {
       // Do nothing here to disable the back button
     });
   }
 
-  fetchConversacion(): void {
+  ionViewWillEnter() {
+    this.route.queryParams.subscribe(params => {
+      this.i = params['i'];
+    });
+    console.log("kaixo:", this.i);
+    this.fetchConversacion(this.i);
+  }
+
+  fetchConversacion(idx: number): void {
     fetch('assets/dialog/dialog.json')
       .then((response) => response.json())
       .then((conversacion) => {
-        this.dialogService.mostrarConversacion(conversacion, () => {
-          // Puedes realizar acciones adicionales después de mostrar la conversación
-        });
+        let val = this.dialogService.mostrarConversacion(conversacion, () => {}, idx);
+        if(val === 800) {
+          this.navi.navigateForward("/puzzlea");
+          return;
+        } else {
+          this.fetchConversacion(val);
+        }
+        return;
       })
       .catch((error) =>
         console.error('Error al cargar el archivo JSON:', error)
@@ -46,7 +58,7 @@ export class DialogPage implements OnInit {
   }
 
   pasarMensaje(): void {
-    this.fetchConversacion();
+    this.fetchConversacion(this.i);
   }
 
   navigateImg() {
