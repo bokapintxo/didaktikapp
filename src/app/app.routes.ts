@@ -65,5 +65,9 @@ export const routes: Routes = [
   {
     path: 'laberintoa',
     loadComponent: () => import('./laberintoa/laberintoa.page').then( m => m.LaberintoaPage)
+  },  {
+    path: 'zenbakiak-lotu',
+    loadComponent: () => import('./zenbakiak-lotu/zenbakiak-lotu.page').then( m => m.ZenbakiakLotuPage)
   },
+
 ];
