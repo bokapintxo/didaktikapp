@@ -19,6 +19,8 @@ import { Subscription } from 'rxjs';
 export class DialogPage implements OnInit {
   audioBtnSecondary: any;
   i: number = 0;
+  zone: number = 0;
+  imgbtn: HTMLElement = document.getElementById('dialogimgbtn')!;
   private backButtonSubscription: Subscription = new Subscription();
 
   constructor(private dialogService: DialogService, private route: ActivatedRoute, private router: Router, private platform: Platform, private navi: NavController) {}
@@ -44,13 +46,17 @@ export class DialogPage implements OnInit {
       .then((response) => response.json())
       .then((conversacion) => {
         let val = this.dialogService.mostrarConversacion(conversacion, () => {}, idx);
-        if(val === 800) {
-          this.navi.navigateForward("/puzzlea");
-          return;
-        } else {
-          this.fetchConversacion(val);
+        if(val > 900) {
+          switch (val) {
+            case 901:
+              val = 23;
+              this.navi.navigateForward("/puzzlea");
+          }
+        } else if(val > 800) {
+          this.navi.navigateForward("/mapa", { queryParams: { i: val - 800 } });
+          this.zone = val - 800;
+          val = this.i;
         }
-        return;
       })
       .catch((error) =>
         console.error('Error al cargar el archivo JSON:', error)
@@ -62,7 +68,7 @@ export class DialogPage implements OnInit {
   }
 
   navigateImg() {
-    this.router.navigate(['/argazkiak']);
+    this.router.navigate(['/argazkiak'], { queryParams: { i: this.i } });
   }
 
   async pushSecondaryButton() {
