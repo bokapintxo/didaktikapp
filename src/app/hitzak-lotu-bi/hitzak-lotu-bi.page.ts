@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule, NavController, Platform } from '@ionic/angular';
 import { Subscription } from 'rxjs/internal/Subscription';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hitzak-lotu-bi',
@@ -71,7 +72,7 @@ export class HitzakLotuBiPage implements OnInit {
     return botones.every(boton => this.parejasFormadas[boton]);
   }
   
-  constructor(private navCtrl: NavController, private platform: Platform) { }
+  constructor(private router: Router, private platform: Platform) { }
 
   ngOnInit() {
     this.backButtonSubscription = this.platform.backButton.subscribeWithPriority(9999, () => {
@@ -80,7 +81,8 @@ export class HitzakLotuBiPage implements OnInit {
   }
 
   goBack() {
-    this.navCtrl.back();
+    this.router.navigate(['/dialog'], { queryParams: { i: 99 } });
+    this.backButtonSubscription.unsubscribe();
   }
 
   ngOnDestroy() {

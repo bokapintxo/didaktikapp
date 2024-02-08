@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule, NavController, Platform } from '@ionic/angular';
+import { IonicModule, Platform } from '@ionic/angular';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-urkatua',
@@ -25,7 +26,7 @@ export class UrkatuaPage implements OnInit {
   
   private backButtonSubscription: Subscription = new Subscription();
 
-  constructor(private navCtrl: NavController, private platform: Platform) {}
+  constructor(private router: Router, private platform: Platform) {}
   ngOnInit(): void {
     this.backButtonSubscription = this.platform.backButton.subscribeWithPriority(9999, () => {
       // Do nothing here to disable the back button
@@ -95,7 +96,8 @@ export class UrkatuaPage implements OnInit {
   }
 
   goBack() {
-    this.navCtrl.back();
+    this.router.navigate(['/dialog'], { queryParams: { i: 60 } });
+    this.backButtonSubscription.unsubscribe();
   }
 
   ngOnDestroy() {

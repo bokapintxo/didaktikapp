@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule, NavController, Platform } from '@ionic/angular';
+import { IonicModule, Platform } from '@ionic/angular';
 import { Haptics } from '@capacitor/haptics';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bingo-irakaslea',
@@ -20,7 +21,7 @@ export class BingoIrakasleaPage implements OnInit {
   audioSecondaryButton: any;
   private backButtonSubscription: Subscription = new Subscription();
 
-  constructor(private http: HttpClient, private navCtrl: NavController, private platform: Platform) { }
+  constructor(private http: HttpClient, private router: Router, private platform: Platform) { }
 
   ngOnInit() {
     this.loadData();
@@ -97,7 +98,8 @@ export class BingoIrakasleaPage implements OnInit {
   }
 
   goBack() {
-    this.navCtrl.back();
+    this.router.navigate(['/dialog'], { queryParams: { i: 79 } });
+    this.backButtonSubscription.unsubscribe();
   }
   
   ngOnDestroy() {

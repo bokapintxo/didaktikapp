@@ -51,6 +51,31 @@ export class DialogPage implements OnInit {
             case 901:
               val = 23;
               this.navi.navigateForward("/puzzlea");
+              break;
+            case 902:
+              val = 44;
+              this.navi.navigateForward("/laberintoa");
+              break;
+            case 903:
+              val = 60;
+              this.navi.navigateForward("/urkatua");
+              break;
+            case 904:
+              val = 79;
+              this.navi.navigateForward("/bingo-rola");
+              break;
+            case 905:
+              val = 99;
+              this.navi.navigateForward("/hitzak-lotu");
+              break;
+            case 906:
+              val = 121;
+              this.navi.navigateForward("/zenbakiak-lotu");
+              break;
+            case 907:
+              val = 145;
+              this.navi.navigateForward("/hizki-zopa");
+              break;
           }
         } else if(val > 800) {
           this.navi.navigateForward("/mapa", { queryParams: { i: val - 800 } });
