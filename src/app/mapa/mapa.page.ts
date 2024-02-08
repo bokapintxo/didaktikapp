@@ -18,6 +18,8 @@ export class MapaPage implements OnInit {
   private backButtonSubscription: Subscription = new Subscription();
   audioBtn: any;
   i: number = 0;
+  place: string = "";
+  places: string[] = ["Santa Anako Arku", "Santa Ana Eliza", "Kurutziaga Ikastola", "Landako Gune", "Durangoko Aratusteeta", "Surrandieta", "Ezkurdi plaza"];
 
   constructor(private router: Router, private route: ActivatedRoute, private platform: Platform) { }
 
@@ -27,6 +29,7 @@ export class MapaPage implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.i = params['i'];
     });
+    this.place = this.places[this.i - 1];
     this.backButtonSubscription = this.platform.backButton.subscribeWithPriority(9999, () => {
       // Do nothing here to disable the back button
     });
