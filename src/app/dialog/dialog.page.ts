@@ -20,7 +20,7 @@ export class DialogPage implements OnInit {
   audioBtnSecondary: any;
   i: number = 0;
   zone: number = 0;
-  imgbtn: HTMLElement = document.getElementById('dialogimgbtn')!;
+
   private backButtonSubscription: Subscription = new Subscription();
 
   constructor(private dialogService: DialogService, private route: ActivatedRoute, private router: Router, private platform: Platform, private navi: NavController) {}
@@ -37,6 +37,7 @@ export class DialogPage implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.i = params['i'];
     });
+
     console.log("kaixo:", this.i);
     this.fetchConversacion(this.i);
   }
@@ -78,6 +79,10 @@ export class DialogPage implements OnInit {
               break;
           }
         } else if(val > 800) {
+          const imgBtn = document.getElementById("dialogimgbtn");
+          if(imgBtn) {
+            imgBtn.classList.remove('button-disabled');
+          }
           this.navi.navigateForward("/mapa", { queryParams: { i: val - 800 } });
           this.zone = val - 800;
           val = this.i;
@@ -93,7 +98,7 @@ export class DialogPage implements OnInit {
   }
 
   navigateImg() {
-    this.router.navigate(['/argazkiak'], { queryParams: { i: this.i } });
+    this.router.navigate(['/argazkiak'], { queryParams: { zone: this.zone } });
   }
 
   async pushSecondaryButton() {
