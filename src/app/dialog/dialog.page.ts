@@ -93,6 +93,10 @@ export class DialogPage implements OnInit {
       );
   }
 
+  skip() {
+    
+  }
+
   pasarMensaje(): void {
     this.fetchConversacion(this.i);
   }
