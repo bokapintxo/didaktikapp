@@ -69,5 +69,9 @@ export const routes: Routes = [
     path: 'mapa',
     loadComponent: () => import('./mapa/mapa.page').then( m => m.MapaPage)
   },
+  {
+    path: 'amaiera',
+    loadComponent: () => import('./amaiera/amaiera.page').then( m => m.AmaieraPage)
+  },
 
 ];

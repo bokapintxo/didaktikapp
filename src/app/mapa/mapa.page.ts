@@ -44,6 +44,7 @@ export class MapaPage implements OnInit {
   }
 
   goBack() {
+    /*
     switch (this.i) {
       case 1:
         this.router.navigate(['/dialog'], { queryParams: { i: 8 } });
@@ -63,8 +64,26 @@ export class MapaPage implements OnInit {
       case 6:
         this.router.navigate(['/dialog'], { queryParams: { i: 102 } });
         break;
-      default:
+      case 7:
         this.router.navigate(['/dialog'], { queryParams: { i: 124 } });
+        break;
+      default:
+        console.log(this.i);
+    }*/
+    if(this.i == 1) {
+      this.router.navigate(['/dialog'], { queryParams: { i: 8 } });
+    } else if(this.i == 2) {
+      this.router.navigate(['/dialog'], { queryParams: { i: 24 } });
+    } else if(this.i == 3) {
+      this.router.navigate(['/dialog'], { queryParams: { i: 45 } });
+    } else if(this.i == 4) {
+      this.router.navigate(['/dialog'], { queryParams: { i: 62 } });
+    } else if(this.i == 5) {
+      this.router.navigate(['/dialog'], { queryParams: { i: 81 } });
+    } else if(this.i == 6) {
+      this.router.navigate(['/dialog'], { queryParams: { i: 102 } });
+    } else if(this.i == 7) {
+      this.router.navigate(['/dialog'], { queryParams: { i: 124 } });
     }
     this.backButtonSubscription.unsubscribe();
   }

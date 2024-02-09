@@ -20,6 +20,7 @@ export class DialogPage implements OnInit {
   audioBtnSecondary: any;
   i: number = 0;
   zone: number = 0;
+  nextMap: boolean = true;
 
   private backButtonSubscription: Subscription = new Subscription();
 
@@ -48,6 +49,7 @@ export class DialogPage implements OnInit {
       .then((conversacion) => {
         let val = this.dialogService.mostrarConversacion(conversacion, () => {}, idx);
         if(val > 900) {
+          this.nextMap = true;
           switch (val) {
             case 901:
               val = 23;
@@ -77,8 +79,12 @@ export class DialogPage implements OnInit {
               val = 145;
               this.navi.navigateForward("/hizki-zopa");
               break;
+            case 908:
+              this.navi.navigateForward("/amaiera");
+              break;
           }
         } else if(val > 800) {
+          this.nextMap = false;
           const imgBtn = document.getElementById("dialogimgbtn");
           if(imgBtn) {
             imgBtn.classList.remove('button-disabled');
@@ -94,7 +100,38 @@ export class DialogPage implements OnInit {
   }
 
   skip() {
-    
+    if(this.nextMap) {
+      this.nextMap = false;
+      this.zone++;
+      if (this.zone < 8) {
+        this.router.navigate(['/mapa'], { queryParams: { i: this.zone } });
+      }
+    } else {
+      this.nextMap = true;
+      switch (this.zone) {
+        case 1:
+          this.navi.navigateForward("/puzzlea");
+          break;
+        case 2:
+          this.navi.navigateForward("/laberintoa");
+          break;
+        case 3:
+          this.navi.navigateForward("/urkatua");
+          break;
+        case 4:
+          this.navi.navigateForward("/bingo-rola");
+          break;
+        case 5:
+          this.navi.navigateForward("/hitzak-lotu");
+          break;
+        case 6:
+          this.navi.navigateForward("/zenbakiak-lotu");
+          break;
+        case 7:
+          this.navi.navigateForward("/hizki-zopa");
+          break;
+      }
+    }
   }
 
   pasarMensaje(): void {
