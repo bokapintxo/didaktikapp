@@ -70,6 +70,10 @@ export class HomePage {
     this.router.navigate(['/laberintoa']);
   }
 
+  navigateZenbakiakLotu(): void {
+    this.router.navigate(['/zenbakiak-lotu']);
+  }
+
   navigateTemplate(): void {
     this.router.navigate(['/template-page']);
   }
