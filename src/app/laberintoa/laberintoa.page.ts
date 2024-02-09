@@ -200,7 +200,7 @@ export class LaberintoaPage implements OnInit {
   }
 
   navigateHome(): void {
-    this.router.navigate(['/dialog'], { queryParams: { i: 44 } });
+    this.router.navigate(['/dialog'], { queryParams: { i: 42 } });
     this.reset();
     this.backButtonSubscription.unsubscribe();
   }

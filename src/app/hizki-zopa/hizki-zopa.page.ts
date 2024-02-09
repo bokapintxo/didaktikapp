@@ -234,7 +234,7 @@ export class HizkiZopaPage implements OnInit {
 
   
   goBack() {
-    this.router.navigate(['/dialog'], { queryParams: { i: 145 } });
+    this.router.navigate(['/dialog'], { queryParams: { i: 143 } });
   }
 
   ngOnDestroy() {

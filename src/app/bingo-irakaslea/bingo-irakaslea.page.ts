@@ -98,7 +98,7 @@ export class BingoIrakasleaPage implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['/dialog'], { queryParams: { i: 79 } });
+    this.router.navigate(['/dialog'], { queryParams: { i: 77 } });
     this.backButtonSubscription.unsubscribe();
   }
   

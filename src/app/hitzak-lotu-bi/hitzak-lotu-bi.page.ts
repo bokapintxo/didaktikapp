@@ -48,7 +48,7 @@ export class HitzakLotuBiPage implements OnInit {
           this.botonesSeleccionados = {};
 
           if (this.allSakatuta()) {
-            document.getElementById("hitzaklotujarraitu")?.classList.remove('button-disabled');
+            document.getElementById("hitzaklotujarraitu2")?.classList.remove('button-disabled');
           }
         } else {
           this.estilosBotones[primerBoton] = this.parejasFormadas[primerBoton] ? claseEstilo : '';
@@ -81,7 +81,7 @@ export class HitzakLotuBiPage implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['/dialog'], { queryParams: { i: 99 } });
+    this.router.navigate(['/dialog'], { queryParams: { i: 97 } });
     this.backButtonSubscription.unsubscribe();
   }
 
