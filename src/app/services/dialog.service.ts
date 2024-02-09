@@ -19,14 +19,31 @@ export class DialogService {
   private indiceConversacion = 0;
   private escribiendo = false;
 
-  mostrarConversacion(conversacion: any[], callback: Function): void {
+  mostrarConversacion(conversacion: any[], callback: Function, index:number): number {
+    
     if (this.escribiendo) {
-      return;
+      return 0;
     }
 
+    if (this.indiceConversacion > 500) {
+      this.indiceConversacion = index;
+    }
+    
     this.escribiendo = true;
 
     const linea = conversacion[this.indiceConversacion];
+    
+    if(linea.personaje == 'MAPA') {
+      let mapa:number = Number.parseInt(linea.mensaje);
+      index = 800 + mapa;
+    } else if(linea.personaje == 'JOKOA') {
+      let jokoa:number = Number.parseInt(linea.mensaje);
+      index = 900 + jokoa;
+    }
+
+    if(index > this.indiceConversacion) {
+      this.indiceConversacion = index;
+    }
 
     const personajeElement = document.getElementById('personaje');
     const mensajeElement = document.getElementById('mensaje');
@@ -34,11 +51,17 @@ export class DialogService {
     if (!personajeElement || !mensajeElement) {
       console.error("No se pudo encontrar uno o ambos elementos en el DOM.");
       this.escribiendo = false;
-      return;
+      return -1;
     }
 
+    console.log(index + " input index");
+    console.log(this.indiceConversacion + " indiceConversacion")
+    
+  
     personajeElement.innerText = linea.personaje;
     mensajeElement.innerHTML = '';
+
+    console.log(this.indiceConversacion + " indiceConversacion (corrected)")
 
     const mensajeTexto = linea.mensaje.split('');
     let i = 0;
@@ -79,5 +102,6 @@ export class DialogService {
     }
 
     agregarCaracter();
+    return this.indiceConversacion;
   }
 }

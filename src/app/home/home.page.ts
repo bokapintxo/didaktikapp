@@ -55,7 +55,7 @@ export class HomePage {
   }
 
   navigateDialog(): void {
-    this.router.navigate(['/dialog']);
+    this.router.navigate(['/dialog'], { queryParams: { i: 0 } });
   }
 
   navigateHitzakLotu(): void {

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule, NavController, Platform } from '@ionic/angular';
 import { Haptics } from '@capacitor/haptics';
 import { Subscription } from 'rxjs/internal/Subscription';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hizki-zopa',
@@ -46,7 +47,7 @@ export class HizkiZopaPage implements OnInit {
 
   private backButtonSubscription: Subscription = new Subscription();
 
-  constructor(private navCtrl: NavController, private platform: Platform) { 
+  constructor(private router: Router, private platform: Platform) { 
     this.board = [] = this.predefinedBoard;
 
     /*
@@ -233,7 +234,7 @@ export class HizkiZopaPage implements OnInit {
 
   
   goBack() {
-    this.navCtrl.back();
+    this.router.navigate(['/dialog'], { queryParams: { i: 143 } });
   }
 
   ngOnDestroy() {

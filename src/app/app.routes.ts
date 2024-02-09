@@ -65,7 +65,16 @@ export const routes: Routes = [
   {
     path: 'laberintoa',
     loadComponent: () => import('./laberintoa/laberintoa.page').then( m => m.LaberintoaPage)
-  },  {
+  },
+  {
+    path: 'mapa',
+    loadComponent: () => import('./mapa/mapa.page').then( m => m.MapaPage)
+  },
+  {
+    path: 'amaiera',
+    loadComponent: () => import('./amaiera/amaiera.page').then( m => m.AmaieraPage)
+  },
+  {
     path: 'zenbakiak-lotu',
     loadComponent: () => import('./zenbakiak-lotu/zenbakiak-lotu.page').then( m => m.ZenbakiakLotuPage)
   },

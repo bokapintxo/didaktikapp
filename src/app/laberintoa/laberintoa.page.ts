@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-laberintoa',
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class LaberintoaPage implements OnInit {
+  private backButtonSubscription: Subscription = new Subscription();
 
   // Hartzaren posizioa
   posX: number = 150;
@@ -167,12 +169,15 @@ export class LaberintoaPage implements OnInit {
     }
   }
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private platform: Platform) {}
 
   ngOnInit() {
     const laberintoSantaMariaImg = document.querySelector('.santamariaimg') as HTMLElement;
     laberintoSantaMariaImg.style.transform = `translate(${this.Xsm}px, ${this.Ysm}px)`;
     this.posizioaEguneratu(0);
+    this.backButtonSubscription = this.platform.backButton.subscribeWithPriority(9999, () => {
+      // Do nothing here to disable the back button
+    });
   }
 
   ngAfterViewInit() {
@@ -195,8 +200,9 @@ export class LaberintoaPage implements OnInit {
   }
 
   navigateHome(): void {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/dialog'], { queryParams: { i: 42 } });
     this.reset();
+    this.backButtonSubscription.unsubscribe();
   }
 
 }

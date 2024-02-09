@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonButton, IonicModule, NavController, Platform } from '@ionic/angular';
-import { state } from '@angular/animations';
+import { IonButton, IonicModule, Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Haptics } from '@capacitor/haptics';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -24,7 +23,7 @@ export class BingoaPage implements OnInit {
   audioSecondaryButton: any;
   private backButtonSubscription: Subscription = new Subscription();
   
-  constructor(private router: Router, private http: HttpClient, private navCtrl: NavController, private platform: Platform) {
+  constructor(private router: Router, private http: HttpClient, private platform: Platform) {
     
   }
 
@@ -125,7 +124,8 @@ export class BingoaPage implements OnInit {
   }
 
   goBack() {
-    this.navCtrl.back();
+    this.router.navigate(['/dialog'], { queryParams: { i: 77 } });
+    this.backButtonSubscription.unsubscribe();
   }
   
   ngOnDestroy() {
