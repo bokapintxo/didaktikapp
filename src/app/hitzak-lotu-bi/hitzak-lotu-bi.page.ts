@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule, NavController, Platform } from '@ionic/angular';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { Router } from '@angular/router';
+import { Haptics } from '@capacitor/haptics';
 
 @Component({
   selector: 'app-hitzak-lotu-bi',
@@ -18,6 +19,11 @@ export class HitzakLotuBiPage implements OnInit {
   estilosBotones: { [key: string]: string } = {};
   parejasFormadas: { [key: string]: boolean } = {};
   botonesSeleccionados: { [key: string]: boolean } = {};
+
+  audioCorrect: any;
+  audioWrong: any;
+  audioBtn: any;
+  audioBtnSecondary: any;
 
   estiloaAldatu(nombreBoton: string, claseEstilo: string) {
     if (this.tieneParejaYColor(nombreBoton)) {
@@ -43,6 +49,7 @@ export class HitzakLotuBiPage implements OnInit {
         const segundoBoton = botonesSeleccionadosArray[1];
   
         if (this.sonPareja(primerBoton, segundoBoton)) {
+          this.correctHaptic();
           this.parejasFormadas[primerBoton] = true;
           this.parejasFormadas[segundoBoton] = true;
           this.botonesSeleccionados = {};
@@ -51,6 +58,7 @@ export class HitzakLotuBiPage implements OnInit {
             document.getElementById("hitzaklotujarraitu2")?.classList.remove('button-disabled');
           }
         } else {
+          this.incorrectHaptic();
           this.estilosBotones[primerBoton] = this.parejasFormadas[primerBoton] ? claseEstilo : '';
           this.estilosBotones[segundoBoton] = this.parejasFormadas[segundoBoton] ? claseEstilo : '';
           this.botonesSeleccionados = {};
@@ -75,6 +83,18 @@ export class HitzakLotuBiPage implements OnInit {
   constructor(private router: Router, private platform: Platform) { }
 
   ngOnInit() {
+    this.audioBtn = new Audio();
+    this.audioBtn.src = '../../assets/aud/btn_handia.mp3';
+
+    this.audioBtnSecondary = new Audio();
+    this.audioBtnSecondary.src = '../../assets/aud/btn_txikia.mp3';
+
+    this.audioCorrect = new Audio();
+    this.audioCorrect.src = '../../assets/aud/correct.mp3';
+
+    this.audioWrong = new Audio();
+    this.audioWrong.src = '../../assets/aud/wrong.mp3';
+
     this.backButtonSubscription = this.platform.backButton.subscribeWithPriority(9999, () => {
       // Do nothing here to disable the back button
     });
@@ -87,6 +107,40 @@ export class HitzakLotuBiPage implements OnInit {
 
   ngOnDestroy() {
     this.backButtonSubscription.unsubscribe();
+  }
+
+  async pushButton() {
+    this.audioBtn.load();
+    this.audioBtn.play();
+    await Haptics.vibrate({duration: 10});
+    await new Promise(resolve => setTimeout(resolve, 50));
+    await Haptics.vibrate({duration: 10});
+  }
+
+  async pushSecondaryButton() {
+    this.audioBtnSecondary.load();
+    this.audioBtnSecondary.play();
+    await Haptics.vibrate({duration: 5});
+  }
+
+  async incorrectHaptic() {
+    this.audioWrong.load();
+    this.audioWrong.play();
+    await Haptics.vibrate({duration: 50});
+    await new Promise(resolve => setTimeout(resolve, 100));
+    await Haptics.vibrate({duration: 200});
+  }
+
+  async correctHaptic() {
+    this.audioCorrect.load();
+    this.audioCorrect.play();
+    await Haptics.vibrate({duration: 20});
+    await new Promise(resolve => setTimeout(resolve, 80));
+    await Haptics.vibrate({duration: 20});
+    await new Promise(resolve => setTimeout(resolve, 80));
+    await Haptics.vibrate({duration: 20});
+    await new Promise(resolve => setTimeout(resolve, 80));
+    await Haptics.vibrate({duration: 20});
   }
 
 }

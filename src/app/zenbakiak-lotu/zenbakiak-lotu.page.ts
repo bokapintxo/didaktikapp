@@ -139,7 +139,7 @@ export class ZenbakiakLotuPage implements OnInit {
   
   navigateHome(): void {
     this.zenbakiakLotuReset();
-    this.router.navigate(['/home']);
+    this.router.navigate(['/dialog'], { queryParams: { i: 119 } });
   }
 
   async incorrectHaptic() {
