@@ -1,13 +1,14 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>amaiera</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">amaiera</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="global">
+    <div class="toptitle">
+      <h1>Zorionak!</h1>
+      <h3>Jokoa amaitu duzu!</h3>
+    </div>
+    <div class="content hbcenter">
+      <img src="../../assets/portada.png">
+    </div>
+    <div class="bottom">
+      <ion-button class="button-primary" (click)="pushButton(); navigateKredituak()">Kredituak</ion-button>
+    </div>
+  </div>
 </ion-content>
