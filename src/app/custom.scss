@@ -184,6 +184,17 @@ ion-button {
     width: 100%;
 }
 
+.hbcenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: bottom;
+}
+
+.hbcenter > img {
+    max-width: 80%
+}
+
 
 /*DIALOG*/
 @keyframes parpadeo {
