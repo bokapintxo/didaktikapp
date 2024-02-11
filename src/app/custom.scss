@@ -189,10 +189,12 @@ ion-button {
     justify-content: center;
     align-items: center;
     vertical-align: bottom;
+    max-height: 100%;
+    overflow-y:hidden;
 }
 
 .hbcenter > img {
-    max-width: 80%
+    max-height: 100%;
 }
 
 
