@@ -16,68 +16,67 @@ import { Haptics } from '@capacitor/haptics';
 
 export class HitzakLotuBiPage implements OnInit {
   private backButtonSubscription: Subscription = new Subscription();
-  estilosBotones: { [key: string]: string } = {};
-  parejasFormadas: { [key: string]: boolean } = {};
-  botonesSeleccionados: { [key: string]: boolean } = {};
+  botoiEstiloak: { [key: string]: string } = {};
+  sortutakoBikoteak: { [key: string]: boolean } = {};
+  aukeratutakoBotoiak: { [key: string]: boolean } = {};
 
   audioCorrect: any;
   audioWrong: any;
   audioBtn: any;
   audioBtnSecondary: any;
 
-  estiloaAldatu(nombreBoton: string, claseEstilo: string) {
-    if (this.tieneParejaYColor(nombreBoton)) {
+  estiloaAldatu(botoiIzena: string, estiloClass: string) {
+    if (this.tieneParejaYColor(botoiIzena)) {
       return;
     }
   
-    // Si el botón ya está seleccionado, deselecciónalo
-    if (this.botonesSeleccionados[nombreBoton]) {
-      this.botonesSeleccionados = {};
-      this.estilosBotones[nombreBoton] = '';
+    if (this.aukeratutakoBotoiak[botoiIzena]) {
+      this.aukeratutakoBotoiak = {};
+      this.botoiEstiloak[botoiIzena] = '';
       return;
     }
   
-    const esPrimerConjunto = nombreBoton === 'ostirala' || nombreBoton === 'osteguna' || nombreBoton === '2igandea' || nombreBoton === 'astelehena' || nombreBoton === 'asteartea' || nombreBoton === '1igandea' || nombreBoton === 'larunbata';
+    const lehenBikotea = botoiIzena === 'ostirala' || botoiIzena === 'osteguna' || botoiIzena === '2igandea' || botoiIzena === 'astelehena' || botoiIzena === 'asteartea' || botoiIzena === '1igandea' || botoiIzena === 'larunbata';
   
-    if (esPrimerConjunto || Object.keys(this.botonesSeleccionados).length > 0) {
-      this.botonesSeleccionados[nombreBoton] = true;
-      this.estilosBotones[nombreBoton] = claseEstilo;
+    if (lehenBikotea || Object.keys(this.aukeratutakoBotoiak).length > 0) {
+      this.aukeratutakoBotoiak[botoiIzena] = true;
+      this.botoiEstiloak[botoiIzena] = estiloClass;
   
-      if (Object.keys(this.botonesSeleccionados).length === 2) {
-        const botonesSeleccionadosArray = Object.keys(this.botonesSeleccionados);
-        const primerBoton = botonesSeleccionadosArray[0];
-        const segundoBoton = botonesSeleccionadosArray[1];
+      if (Object.keys(this.aukeratutakoBotoiak).length === 2) {
+        const aukeratutakoBotoiakArray = Object.keys(this.aukeratutakoBotoiak);
+        const lehenBotoia = aukeratutakoBotoiakArray[0];
+        const bigarrenBotoia = aukeratutakoBotoiakArray[1];
   
-        if (this.sonPareja(primerBoton, segundoBoton)) {
+        if (this.sonPareja(lehenBotoia, bigarrenBotoia)) {
           this.correctHaptic();
-          this.parejasFormadas[primerBoton] = true;
-          this.parejasFormadas[segundoBoton] = true;
-          this.botonesSeleccionados = {};
+          this.sortutakoBikoteak[lehenBotoia] = true;
+          this.sortutakoBikoteak[bigarrenBotoia] = true;
+          this.aukeratutakoBotoiak = {};
 
           if (this.allSakatuta()) {
             document.getElementById("hitzaklotujarraitu2")?.classList.remove('button-disabled');
           }
         } else {
           this.incorrectHaptic();
-          this.estilosBotones[primerBoton] = this.parejasFormadas[primerBoton] ? claseEstilo : '';
-          this.estilosBotones[segundoBoton] = this.parejasFormadas[segundoBoton] ? claseEstilo : '';
-          this.botonesSeleccionados = {};
+          this.botoiEstiloak[lehenBotoia] = this.sortutakoBikoteak[lehenBotoia] ? estiloClass : '';
+          this.botoiEstiloak[bigarrenBotoia] = this.sortutakoBikoteak[bigarrenBotoia] ? estiloClass : '';
+          this.aukeratutakoBotoiak = {};
         }
       }
     }
   }
   
-  sonPareja(boton1: string, boton2: string): boolean {
-    return this.estilosBotones[boton1] === this.estilosBotones[boton2] && this.estilosBotones[boton1] !== '';
+  sonPareja(botoia1: string, botoia2: string): boolean {
+    return this.botoiEstiloak[botoia1] === this.botoiEstiloak[botoia2] && this.botoiEstiloak[botoia1] !== '';
   }
 
   tieneParejaYColor(boton: string): boolean {
-    return this.parejasFormadas[boton];
+    return this.sortutakoBikoteak[boton];
   }
 
   allSakatuta(): boolean {
-    const botones = ['ostirala', 'osteguna', '2igandea', 'astelehena', 'asteartea', '1igandea', 'larunbata'];
-    return botones.every(boton => this.parejasFormadas[boton]);
+    const botoiak = ['ostirala', 'osteguna', '2igandea', 'astelehena', 'asteartea', '1igandea', 'larunbata'];
+    return botoiak.every(boton => this.sortutakoBikoteak[boton]);
   }
   
   constructor(private router: Router, private platform: Platform) { }

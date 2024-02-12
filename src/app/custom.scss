@@ -69,7 +69,6 @@ ion-button {
     width: 100%;
 }
 
-
 .button-primary {
     --background: #FF9F69;
     --color: white;
@@ -423,6 +422,13 @@ ion-button {
     --border-color: #77476C;
 }
 
+.hlbtn {
+    white-space: normal;
+}
+
+.btnh {
+    height: 60px;
+}
 
 /*HIZKI ZOPA*/
 .zopatable {
