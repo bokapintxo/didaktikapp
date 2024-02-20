@@ -19,7 +19,7 @@ export class MapaPage implements OnInit {
   audioBtn: any;
   i: number = 0;
   place: string = "";
-  places: string[] = ["Santa Anako Arku", "Santa Ana Eliza", "Kurutziaga Ikastola", "Landako Gune", "Durangoko Aratusteeta", "Surrandieta", "Ezkurdi plaza"];
+  places: string[] = ["Santa Anako Arku", "Santa Ana Eliza", "Kurutziaga Ikastola", "Landako Gune", "Durangoko Aratusteeta", "Kurutziagako ikastola", "Ezkurdi plaza"];
 
   constructor(private router: Router, private route: ActivatedRoute, private platform: Platform) { }
 
